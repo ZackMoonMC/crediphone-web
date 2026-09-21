@@ -412,7 +412,7 @@
   }
   .regalos-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .regalo-card{
-    height:140px;border-radius:18px;background:var(--blanco);
+    height:205px;border-radius:18px;background:var(--blanco);
     display:flex;align-items:flex-end;justify-content:center;
     overflow:hidden;position:relative;
   }
@@ -655,6 +655,7 @@
   }
 
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <!--
@@ -673,11 +674,11 @@
 <span class="marquee-item">🇺🇸 DIRECTO DE EE.UU</span>
 <span class="marquee-item">✅ 100% GARANTIZADO</span>
 <span class="marquee-item">🚚 DELIVERY GRATIS</span>
-<span class="marquee-item">🔥 SIN ENTREGA INICIAL</span>
+<span class="marquee-item">🔥 ENTREGA INMEDIATA</span>
 <span class="marquee-item">🇺🇸 DIRECTO DE EE.UU</span>
 <span class="marquee-item">✅ 100% GARANTIZADO</span>
 <span class="marquee-item">🚚 DELIVERY GRATIS</span>
-<span class="marquee-item">🔥 SIN ENTREGA INICIAL</span>
+<span class="marquee-item">🔥 ENTREGA INMEDIATA</span>
 </div>
 </div>
 <!-- 2. HEADER -->
@@ -773,8 +774,11 @@
 </div>
 <!-- 5. SECCIÓN DE FACILIDAD -->
 <div class="seccion-facilidad">
-<h2 class="facilidad-titular">Así de fácil.</h2>
-<p class="facilidad-subtitulo">3 simples pasos.</p>
+<h2 class="facilidad-titular">
+  <i data-lucide="hand-coins" style="width:32px;height:32px;vertical-align:-6px;margin-right:8px;"></i>
+  Es muy fácil.
+</h2>
+<p class="facilidad-subtitulo">3 pasos, ¡listo!</p>
 <div class="card-pasos">
 <div class="paso">
 <div class="paso-numero">01</div>
@@ -804,8 +808,8 @@
 
   <!-- ===== 6. SECCIÓN: TU IPHONE A CUOTAS NO VIENE SOLO ===== -->
   <section class="seccion-regalos" id="regalos">
-    <h2 class="regalos-titulo">Tu iPhone no viene solo</h2>
-    <div class="regalos-bajada">¡El regalo, lo elegís vos!</div>
+    <h2 class="regalos-titulo">Te damos más</h2>
+    <div class="regalos-bajada">¡Un regalo a elección!</div>
     <div class="regalos-grid">
       <div class="regalo-card">
         <img class="regalo-foto" src="img/regalo-smartwatch.png" alt="Smartwatch" onerror="this.style.display='none';">
@@ -835,8 +839,8 @@
   <!-- ===== 7. SECCIÓN: TRADE-IN ===== -->
   <section class="seccion-tradein" id="trade-in">
 <div class="cot-wrap">
-<div class="cot-titulo">Trade-in: recibimos tu equipo al mejor precio</div>
-<div class="cot-sub cot-sub-outfit">La mejor oferta garantizada.</div>
+<div class="cot-titulo">Trade-in:</div>
+<div class="cot-sub cot-sub-outfit">Cotizá tu equipo fácil.</div>
 <div class="valor-card">
 <div>
 <div class="valor-label">Tu equipo</div>
@@ -985,5 +989,6 @@
     resultado.classList.remove('visible');
   });
 </script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
