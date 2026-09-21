@@ -244,7 +244,7 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center bottom;
+    object-position:78% bottom;
   }
 
   .dots{ display:flex; justify-content:center; gap:6px; padding-top:8px; }
@@ -384,49 +384,65 @@
   /* ===== SECCIÓN REGALOS ===== */
   .seccion-regalos{
     background:#EDEFF3;
-    padding:32px 20px 28px;
+    padding:28px 20px 20px;
     text-align:center;
+    max-height:85vh;
+    max-height:85dvh;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
   }
   .regalos-titulo{
+    font-family:'Newsreader', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size:1.75rem;
+    line-height:1.9rem;
+    letter-spacing:-0.02em;
+    color:var(--negro);
+    margin:0 auto 6px;
+  }
+  .regalos-bajada{
     font-family:'Outfit', sans-serif;
     font-weight:600;
-    font-size:1.5rem;
-    line-height:1.75rem;
-    color:var(--negro);
-    max-width:24ch;
+    font-size:1.05rem;
+    line-height:1.3rem;
+    color:var(--gris-texto);
     margin:0 auto 16px;
   }
-  .regalos-pill{
-    display:inline-block;
-    background:var(--negro);
-    color:var(--blanco);
-    font-family:'Figtree', sans-serif;
-    font-weight:700;
-    font-size:.85rem;
-    line-height:1rem;
-    padding:8px 16px;
-    border-radius:999px;
-    margin-bottom:18px;
-  }
-  .regalos-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .regalos-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .regalo-card{
-    height:205px;border-radius:20px;background:var(--blanco);
+    height:140px;border-radius:18px;background:var(--blanco);
     display:flex;align-items:flex-end;justify-content:center;
     overflow:hidden;position:relative;
   }
   .regalo-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
   .regalo-placeholder{
     position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    color:#B5B5BA;font-family:'Figtree',sans-serif;font-size:.75rem;font-weight:500;
-    text-align:center;padding:20px;
+    color:#B5B5BA;font-family:'Figtree',sans-serif;font-size:.7rem;font-weight:500;
+    text-align:center;padding:16px;
   }
   .regalo-nombre{
-    position:relative;z-index:2;width:100%;padding:12px 8px 14px;
+    position:relative;z-index:2;width:100%;padding:10px 8px 12px;
     background:linear-gradient(to top,rgba(255,255,255,.98),rgba(255,255,255,.72),transparent);
-    font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;line-height:1.1rem;color:#6B6B70;
+    font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;line-height:1.05rem;color:#6B6B70;
+  }
+  .regalos-nota{
+    margin-top:14px;
+    font-family:'Figtree', sans-serif;
+    font-weight:600;
+    font-size:0.875rem;
+    line-height:1.2rem;
+    color:var(--negro);
+    text-align:center;
+  }
+  .regalos-nota strong{
+    color:var(--rojo);
+    font-weight:700;
   }
   @media (min-width:768px){
-    .regalos-titulo{font-size:2rem;line-height:2.25rem;}
+    .regalos-titulo{font-size:2.5rem;line-height:2.65rem;}
+    .regalos-bajada{font-size:1.3rem;line-height:1.6rem;}
     .regalos-grid{grid-template-columns:repeat(4,1fr);}
   }
 
@@ -788,30 +804,31 @@
 
   <!-- ===== 6. SECCIÓN: TU IPHONE A CUOTAS NO VIENE SOLO ===== -->
   <section class="seccion-regalos" id="regalos">
-    <h2 class="regalos-titulo">Tu iPhone no viene solo.</h2>
-    <div class="regalos-pill">Elegi un regalo</div>
+    <h2 class="regalos-titulo">Tu iPhone no viene solo</h2>
+    <div class="regalos-bajada">¡El regalo, lo elegís vos!</div>
     <div class="regalos-grid">
       <div class="regalo-card">
-        <img class="regalo-foto" src="assets/regalo-smartwatch.png" alt="Smartwatch" onerror="this.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>assets/regalo-smartwatch.png</small></div>
+        <img class="regalo-foto" src="img/regalo-smartwatch.png" alt="Smartwatch" onerror="this.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-smartwatch.png</small></div>
         <div class="regalo-nombre">Smartwatch</div>
       </div>
       <div class="regalo-card">
-        <img class="regalo-foto" src="assets/regalo-auriculares.png" alt="Auriculares" onerror="this.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>assets/regalo-auriculares.png</small></div>
+        <img class="regalo-foto" src="img/regalo-auriculares.png" alt="Auriculares" onerror="this.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-auriculares.png</small></div>
         <div class="regalo-nombre">Auriculares</div>
       </div>
       <div class="regalo-card">
-        <img class="regalo-foto" src="assets/regalo-vaso-termico.png" alt="Vaso térmico" onerror="this.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>assets/regalo-vaso-termico.png</small></div>
+        <img class="regalo-foto" src="img/regalo-vaso-termico.png" alt="Vaso térmico" onerror="this.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-vaso-termico.png</small></div>
         <div class="regalo-nombre">Vaso térmico</div>
       </div>
       <div class="regalo-card">
-        <img class="regalo-foto" src="assets/regalo-bolso-string.png" alt="Bolso String" onerror="this.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>assets/regalo-bolso-string.png</small></div>
+        <img class="regalo-foto" src="img/regalo-bolso-string.png" alt="Bolso String" onerror="this.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-bolso-string.png</small></div>
         <div class="regalo-nombre">Bolso String</div>
       </div>
     </div>
+    <div class="regalos-nota"><strong>BONUS GRATIS:</strong> Te incluimos todos los accesorios, cargador, funda y cristal antishock</div>
   </section>
 
 
@@ -938,7 +955,7 @@
 </script>
 
 <script>
-  const datos = {
+  const datosCuotas = {
     "18promax": { nombre: "iPhone 18 Pro Max", cuota6: "₲XXX.XXX", cuota12: "₲913.000", cuota18: "₲XXX.XXX", foto: "" },
     "17promax": { nombre: "iPhone 17 Pro Max", cuota6: "₲XXX.XXX", cuota12: "₲XXX.XXX", cuota18: "₲XXX.XXX", foto: "" },
     "16":       { nombre: "iPhone 16",         cuota6: "₲XXX.XXX", cuota12: "₲XXX.XXX", cuota18: "₲XXX.XXX", foto: "" },
@@ -953,7 +970,7 @@
   const cuota18El = document.getElementById('cuota18');
   const btnInfoEl = document.getElementById('resultadoBtnInfo');
   select.addEventListener('change', () => {
-    const d = datos[select.value];
+    const d = datosCuotas[select.value];
     if (!d) return;
     nombreEl.textContent = d.nombre;
     fotoEl.src = d.foto;
