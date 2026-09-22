@@ -599,16 +599,23 @@
     margin-top:18px;
     padding-top:4px;
     background:var(--blanco);
-    font-size:0.78rem;
-    line-height:1.15rem;
-    color:#9A9AA0;
+    font-family:'Figtree', sans-serif;
+    font-weight:600;
+    font-size:0.875rem;
+    line-height:1.2rem;
+    color:var(--negro);
+    text-align:center;
+  }
+  .nota-cot strong{
+    color:var(--rojo);
+    font-weight:700;
   }
 
   .cta-cot{
     display:block;
     text-align:center;
     margin-top:20px;
-    background:var(--rojo);
+    background:var(--gris-texto);
     color:var(--blanco);
     font-family:'Outfit', sans-serif;
     font-weight:700;
@@ -618,11 +625,14 @@
     text-decoration:none;
     opacity:0.4;
     pointer-events:none;
-    transition:opacity .2s ease;
+    transition:opacity .2s ease, background .25s ease;
   }
   .cta-cot.activo{
     opacity:1;
     pointer-events:auto;
+  }
+  .cta-cot.descargado{
+    background:#1E9E58;
   }
 
 
@@ -799,6 +809,7 @@
   }
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
   <!--
@@ -1014,7 +1025,7 @@
 <div class="valor-card">
 <div>
 <div class="valor-label">Tu equipo</div>
-<div class="valor-modelo" id="valorModelo">Seleccioná un modelo</div>
+<div class="valor-modelo" id="valorModelo">Obtener valuación</div>
 </div>
 <div class="valor-monto">
 <div class="num" id="valorMonto">—</div>
@@ -1030,8 +1041,8 @@
 <div class="seccion-label">Capacidad</div>
 <div class="capacidades" id="capacidades"></div>
 </div>
-<a class="cta-cot" href="#" id="ctaCot">Escribir por WhatsApp →</a>
-<div class="nota-cot">💡 Tocá un modelo para ver todas las versiones: Normal, Pro y Pro Max.</div>
+<a class="cta-cot" href="#" id="ctaCot">Descargá tu cotización en PDF</a>
+<div class="nota-cot"><strong>TIP:</strong> Elegís modelo, cotizás, descargás.</div>
 </div>
   </section>
 
@@ -1204,12 +1215,103 @@
       const valor = Math.round(base * mult / 10) * 10;
       montoEl.textContent = 'US$ ' + valor;
       cta.classList.add('activo');
-      cta.href = 'https://wa.me/595000000000?text=' + encodeURIComponent('Hola! Quiero entregar mi ' + nombre + ' como parte de pago');
+      cta.classList.remove('descargado');
+      cta.textContent = 'Descargá tu cotización en PDF';
+      cta.href = '#';
+      cta.dataset.nombre = nombre;
+      cta.dataset.valor = 'US$ ' + valor;
+      cta.dataset.wahref = 'https://wa.me/595000000000?text=' + encodeURIComponent('Hola! Quiero entregar mi ' + nombre + ' como parte de pago');
     } else {
       montoEl.textContent = '—';
       cta.classList.remove('activo');
+      cta.classList.remove('descargado');
     }
   }
+
+  function generarPdfCotizacion(nombre, valor){
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a5' });
+    const rojo = [217, 30, 42];
+    const negro = [17, 17, 17];
+    const gris = [91, 91, 96];
+
+    doc.setFillColor(rojo[0], rojo[1], rojo[2]);
+    doc.rect(0, 0, 148, 28, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(20);
+    doc.text('crediphone', 10, 17);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('Cotización de tu equipo', 10, 24);
+
+    const fecha = new Date().toLocaleDateString('es-PY');
+    doc.setTextColor(gris[0], gris[1], gris[2]);
+    doc.setFontSize(9);
+    doc.text(fecha, 138, 10, { align: 'right' });
+
+    doc.setTextColor(negro[0], negro[1], negro[2]);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.text('Tu equipo', 10, 42);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(16);
+    doc.text(nombre, 10, 50);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.text('Valor referencial', 10, 62);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(26);
+    doc.setTextColor(rojo[0], rojo[1], rojo[2]);
+    doc.text(valor, 10, 74);
+
+    doc.setDrawColor(230, 230, 230);
+    doc.line(10, 82, 138, 82);
+
+    doc.setTextColor(negro[0], negro[1], negro[2]);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Requisitos', 10, 92);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('• Cédula vigente', 10, 100);
+    doc.text('• Recibo de sueldo (dependencia o público)', 10, 106);
+    doc.text('• Sin necesidad de tarjeta de crédito', 10, 112);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Beneficios', 10, 124);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('• 1 año de garantía Crediphone Care', 10, 132);
+    doc.text('• Tu pedido o tu dinero de vuelta', 10, 138);
+
+    doc.setFillColor(245, 245, 245);
+    doc.rect(0, 155, 148, 55, 'F');
+    doc.setTextColor(gris[0], gris[1], gris[2]);
+    doc.setFontSize(8);
+    doc.text('Cotización referencial, sujeta a inspección física del equipo. Válida por 7 días.', 10, 165);
+    doc.setTextColor(negro[0], negro[1], negro[2]);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Escribinos por WhatsApp para confirmar', 10, 178);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('+595 000 000 000', 10, 185);
+
+    doc.save('cotizacion-crediphone.pdf');
+  }
+
+  document.getElementById('ctaCot').addEventListener('click', function(e){
+    if (!this.classList.contains('descargado')){
+      e.preventDefault();
+      generarPdfCotizacion(this.dataset.nombre, this.dataset.valor);
+      this.classList.add('descargado');
+      this.textContent = 'Escribinos por WhatsApp →';
+      this.href = this.dataset.wahref;
+    }
+  });
 
 </script>
 
