@@ -709,6 +709,39 @@
       border-right:none;
     }
   }
+
+  /* ===== FOOTER ===== */
+  footer{
+    position:relative;
+    margin-top:20px;
+    border-top:1px solid #2A2A2C;
+    padding:48px 6vw 24px;
+    background:var(--negro);
+  }
+  .foot-grid{ display:grid; grid-template-columns:1fr; gap:32px; }
+  .foot-brand img{ height:32px; margin-bottom:12px; }
+  .foot-brand p{ color:#B5B5BA; font-size:0.875rem; line-height:1.5; font-weight:500; max-width:34ch; }
+  .foot-col h4{ font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#8A8A90; margin-bottom:12px; }
+  .foot-col a{ display:block; color:#B5B5BA; text-decoration:none; font-size:0.875rem; font-weight:600; padding:5px 0; }
+  .foot-col a:hover{ color:var(--blanco); }
+  .foot-contact-item{ display:flex !important; align-items:flex-start; gap:8px; }
+  .foot-contact-item svg{ flex-shrink:0; margin-top:2px; color:var(--rojo); }
+  .foot-social{ display:flex; gap:10px; margin-top:14px; }
+  .foot-social a{
+    width:36px; height:36px;
+    border:1px solid #2A2A2C; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    background:#1A1A1C; color:var(--rojo);
+    transition:background .2s, border-color .2s;
+  }
+  .foot-social a:hover{ background:rgba(217,30,42,0.15); border-color:var(--rojo); }
+  .foot-bottom{
+    margin-top:36px; padding-top:20px;
+    border-top:1px solid #2A2A2C;
+    text-align:center; color:#6B6B70;
+    font-size:0.78rem; font-weight:500;
+  }
+  @media(min-width:800px){ .foot-grid{ grid-template-columns:1.4fr 1fr 1fr; } }
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -834,7 +867,7 @@
 <div class="dot"></div>
 </div>
 <!-- 5. SECCIÓN DE FACILIDAD -->
-<div class="seccion-facilidad">
+<div class="seccion-facilidad" id="facilidad">
 <h2 class="facilidad-titular">
   <i data-lucide="hand-coins" style="width:32px;height:32px;vertical-align:-6px;margin-right:8px;"></i>
   Es muy fácil.
@@ -966,6 +999,50 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img alt="Crediphone" src="img/crediphone-logo.png">
+        <p>Financiamiento propio de iPhones en Paraguay, simple y confiable.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H7.9V12h2.6V9.8c0-2.6 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.87-1.4-2.06-1.4-3.32h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.31 1.38V7.3s-1.88.09-2.91-1.48z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Enlaces</h4>
+        <a href="#facilidad">Cómo funciona</a>
+        <a href="#regalos">Regalos</a>
+        <a href="#trade-in">Trade-in</a>
+        <a href="#smart-deal">Smart Deal</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <a href="#" class="foot-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Asunción, Paraguay</span>
+        </a>
+        <a href="mailto:hola@crediphone.com.py" class="foot-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+          <span>hola@crediphone.com.py</span>
+        </a>
+        <a href="tel:+595000000000" class="foot-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+595 000 000 000</span>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Crediphone. Todos los derechos reservados.</div>
+  </footer>
 
 <script>
 
