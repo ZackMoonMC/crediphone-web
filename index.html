@@ -625,6 +625,90 @@
     pointer-events:auto;
   }
 
+
+  /* ===== SECCIÓN: SMART DEAL ===== */
+  .seccion-smartdeal{
+    background:var(--blanco);
+    max-width:1100px;
+    margin:0 auto;
+    padding:32px 20px 28px;
+    text-align:center;
+  }
+  .smartdeal-titulo{
+    font-family:'Newsreader', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    font-size:2.25rem;
+    line-height:2.4rem;
+    color:var(--negro);
+    margin:0 auto 10px;
+  }
+  .smartdeal-bajada{
+    font-family:'Outfit', sans-serif;
+    font-weight:600;
+    font-size:1.125rem;
+    line-height:1.4rem;
+    color:var(--gris-texto);
+    margin:0 auto 24px;
+  }
+  @media (min-width:768px){
+    .smartdeal-titulo{ font-size:3.5rem; line-height:3.6rem; }
+    .smartdeal-bajada{ font-size:1.4rem; line-height:1.6rem; }
+  }
+
+  .card-confianza{
+    background:var(--gris-fondo);
+    border-radius:16px;
+    padding:8px;
+    display:flex;
+    flex-direction:column;
+  }
+  .punto{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 16px;
+    text-align:left;
+  }
+  .punto-icono{
+    flex-shrink:0;
+    width:40px;
+    height:40px;
+    background:var(--blanco);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .punto-contenido{ display:flex; flex-direction:column; gap:2px; }
+  .punto-titulo{
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    line-height:1.2rem;
+    color:var(--negro);
+  }
+  .punto-desc{
+    font-family:'Figtree', sans-serif;
+    font-weight:400;
+    font-size:0.8rem;
+    line-height:1.1rem;
+    color:var(--gris-texto);
+  }
+  @media (min-width:768px){
+    .card-confianza{
+      flex-direction:row;
+      padding:24px 8px;
+    }
+    .punto{
+      flex:1;
+      border-right:1px solid #E2E2E5;
+    }
+    .punto:last-child{
+      border-right:none;
+    }
+  }
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -840,6 +924,47 @@
 <a class="cta-cot" href="#" id="ctaCot">Escribir por WhatsApp →</a>
 <div class="nota-cot">💡 Tocá un modelo para ver todas las versiones: Normal, Pro y Pro Max.</div>
 </div>
+  </section>
+
+
+  <!-- ===== SECCIÓN: SMART DEAL ===== -->
+  <section class="seccion-smartdeal" id="smart-deal">
+    <h2 class="smartdeal-titulo">
+      <i data-lucide="handshake" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i>
+      Smart Deal
+    </h2>
+    <p class="smartdeal-bajada">Proceso simple y confiable</p>
+
+    <div class="card-confianza">
+      <div class="punto">
+        <div class="punto-icono"><i data-lucide="wallet" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
+        <div class="punto-contenido">
+          <div class="punto-titulo">Financiación propia</div>
+          <div class="punto-desc">Sin bancos ni tarjetas de crédito</div>
+        </div>
+      </div>
+      <div class="punto">
+        <div class="punto-icono"><i data-lucide="shield-check" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
+        <div class="punto-contenido">
+          <div class="punto-titulo">Crediphone Care</div>
+          <div class="punto-desc">1 año de garantía en tu equipo</div>
+        </div>
+      </div>
+      <div class="punto">
+        <div class="punto-icono"><i data-lucide="rotate-ccw" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
+        <div class="punto-contenido">
+          <div class="punto-titulo">Compra segura</div>
+          <div class="punto-desc">Tu pedido o tu dinero de vuelta</div>
+        </div>
+      </div>
+      <div class="punto">
+        <div class="punto-icono"><i data-lucide="badge-check" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
+        <div class="punto-contenido">
+          <div class="punto-titulo">Equipos certificados</div>
+          <div class="punto-desc">Piezas originales de fábrica</div>
+        </div>
+      </div>
+    </div>
   </section>
 
 <script>
