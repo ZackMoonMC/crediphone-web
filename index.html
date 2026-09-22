@@ -187,69 +187,33 @@
     font-style:italic;
   }
 
-  /* ===== 4. HERO SLIDE (cuadrado 1:1) ===== */
-  .slide{
+  /* ===== 4. HERO CARRUSEL (4 fotos cuadradas 1080x1080, swipe automatico) ===== */
+  .hero-carrusel{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    background:var(--blanco);
+  }
+  .hero-track{
+    display:flex;
+    transition:transform .5s ease;
+  }
+  .hero-slide{
+    flex:0 0 100%;
+    display:block;
     width:100%;
     aspect-ratio:1/1;
-    background:#BFCFDB;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
-    text-align:center;
-    padding:5% 7% 0;
-    overflow:hidden;
   }
-
-  .slide-titular{
-    font-family:'Instrument Serif', serif;
-    font-weight:400;
-    font-size:1.85rem;
-    line-height:2rem;
-    color:var(--negro);
-    margin-bottom:8px;
-  }
-  .slide-titular em{ font-style:italic; color:var(--rojo); }
-
-  .slide-sub{
-    font-family:'Outfit', sans-serif;
-    font-weight:500;
-    font-size:0.9rem;
-    line-height:1.2rem;
-    color:var(--gris-texto);
-    margin-bottom:14px;
-  }
-
-  .slide-btn{
-    display:inline-block;
-    background:var(--rojo);
-    color:var(--blanco);
-    font-weight:600;
-    font-size:13px;
-    padding:10px 26px;
-    border-radius:999px;
-    margin-bottom:12px;
-  }
-
-  .foto-wrap{
-    flex:1;
-    width:100%;
-    min-height:0;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    overflow:hidden;
-  }
-  .foto-wrap img{
+  .hero-slide img{
     width:100%;
     height:100%;
-    object-fit:contain;
-    object-position:78% bottom;
+    object-fit:cover;
+    display:block;
   }
 
   .dots{ display:flex; justify-content:center; gap:6px; padding-top:8px; }
   .dots-fuera{ background:var(--blanco); padding:14px 0; }
-  .dot{ width:6px; height:6px; border-radius:50%; background:#00000022; }
+  .dot{ width:6px; height:6px; border-radius:50%; background:#00000022; transition:all .25s ease; }
   .dot.activo{ background:var(--negro); width:16px; border-radius:4px; }
 
   .siguiente-seccion-peek{
@@ -272,8 +236,8 @@
     font-family:'Newsreader', serif;
     font-optical-sizing:auto;
     font-weight:600;
-    font-size:2.75rem;
-    line-height:2.85rem;
+    font-size:2.25rem;
+    line-height:2.4rem;
     letter-spacing:-0.02em;
     color:var(--negro);
     margin:0 auto 10px;
@@ -281,8 +245,8 @@
   }
   @media (min-width:768px){
     .facilidad-titular{
-      font-size:4rem;
-      line-height:4.1rem;
+      font-size:3.5rem;
+      line-height:3.6rem;
       max-width:24ch;
     }
   }
@@ -290,16 +254,16 @@
   .facilidad-subtitulo{
     font-family:'Outfit', sans-serif;
     font-weight:600;
-    font-size:1.5rem;
-    line-height:1.75rem;
+    font-size:1.125rem;
+    line-height:1.4rem;
     color:var(--gris-texto);
     max-width:34ch;
     margin:0 auto 24px;
   }
   @media (min-width:768px){
     .facilidad-subtitulo{
-      font-size:2rem;
-      line-height:2.25rem;
+      font-size:1.4rem;
+      line-height:1.6rem;
       max-width:40ch;
     }
   }
@@ -396,8 +360,8 @@
     font-family:'Newsreader', serif;
     font-optical-sizing:auto;
     font-weight:600;
-    font-size:1.75rem;
-    line-height:1.9rem;
+    font-size:2.25rem;
+    line-height:2.4rem;
     letter-spacing:-0.02em;
     color:var(--negro);
     margin:0 auto 6px;
@@ -405,8 +369,8 @@
   .regalos-bajada{
     font-family:'Outfit', sans-serif;
     font-weight:600;
-    font-size:1.05rem;
-    line-height:1.3rem;
+    font-size:1.125rem;
+    line-height:1.4rem;
     color:var(--gris-texto);
     margin:0 auto 16px;
   }
@@ -441,8 +405,8 @@
     font-weight:700;
   }
   @media (min-width:768px){
-    .regalos-titulo{font-size:2.5rem;line-height:2.65rem;}
-    .regalos-bajada{font-size:1.3rem;line-height:1.6rem;}
+    .regalos-titulo{font-size:3.5rem;line-height:3.6rem;}
+    .regalos-bajada{font-size:1.4rem;line-height:1.6rem;}
     .regalos-grid{grid-template-columns:repeat(4,1fr);}
   }
 
@@ -466,14 +430,18 @@
   .cot-wrap{ padding:24px 20px 32px; max-width:480px; margin:0 auto; background:var(--blanco); }
 
   .cot-titulo{
-    font-family:'Instrument Serif', serif;
-    font-size:2.1rem;
-    line-height:2.3rem;
+    font-family:'Newsreader', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    font-size:2.25rem;
+    line-height:2.4rem;
     color:var(--negro);
+    text-align:center;
     margin-bottom:8px;
   }
   @media (min-width:768px){
-    .cot-titulo{ font-size:2.8rem; line-height:3rem; }
+    .cot-titulo{ font-size:3.5rem; line-height:3.6rem; }
   }
 
   .cot-intermedio{
@@ -488,11 +456,14 @@
     font-size:0.9rem;
     color:var(--gris-texto);
     background:var(--blanco);
+    text-align:center;
     margin-bottom:20px;
   }
   .cot-sub-outfit{
     font-family:'Outfit', sans-serif;
     font-weight:600;
+    font-size:1.125rem;
+    line-height:1.4rem;
   }
 
   /* Valor de referencia, siempre visible arriba */
@@ -755,18 +726,24 @@
 <a class="resultado-btn-info" href="#" id="resultadoBtnInfo">Más info</a>
 </div>
 </div>
-<!-- 4. HERO SLIDE -->
-<div class="slide-container">
-<div class="slide">
-<div class="slide-titular">¿iPhone a cuotitas?<br/>Retirá hoy, <em>pagá después</em></div>
-<div class="slide-sub">Tu nuevo celular a tú alcance. Sin tarjeta de crédito.</div>
-<div class="slide-btn">Cuotas desde ₲149.000</div>
-<div class="foto-wrap">
-<img alt="iPhones en varios colores" src="img/hero-iphones.png"/>
+<!-- 4. HERO CARRUSEL (4 fotos, swipe automatico) -->
+<div class="hero-carrusel" id="heroCarrusel">
+<div class="hero-track" id="heroTrack">
+<a class="hero-slide" href="#selectorModelo">
+<img alt="Cuotas desde ₲149.000 - iPhone a cuotitas" src="img/hero-slide-1.png"/>
+</a>
+<a class="hero-slide" href="#selectorModelo">
+<img alt="Modelos disponibles" src="img/hero-slide-2.png"/>
+</a>
+<a class="hero-slide" href="#selectorModelo">
+<img alt="De regalo AirPods" src="img/hero-slide-3.png"/>
+</a>
+<a class="hero-slide" href="#selectorModelo">
+<img alt="Sin tarjeta de credito" src="img/hero-slide-4.png"/>
+</a>
 </div>
 </div>
-</div>
-<div class="dots dots-fuera">
+<div class="dots dots-fuera" id="heroDots">
 <div class="dot activo"></div>
 <div class="dot"></div>
 <div class="dot"></div>
@@ -808,7 +785,7 @@
 
   <!-- ===== 6. SECCIÓN: TU IPHONE A CUOTAS NO VIENE SOLO ===== -->
   <section class="seccion-regalos" id="regalos">
-    <h2 class="regalos-titulo">Te damos más</h2>
+    <h2 class="regalos-titulo"><i data-lucide="gift" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i> Te damos más</h2>
     <div class="regalos-bajada">¡Un regalo a elección!</div>
     <div class="regalos-grid">
       <div class="regalo-card">
@@ -839,8 +816,8 @@
   <!-- ===== 7. SECCIÓN: TRADE-IN ===== -->
   <section class="seccion-tradein" id="trade-in">
 <div class="cot-wrap">
-<div class="cot-titulo">Trade-in:</div>
-<div class="cot-sub cot-sub-outfit">Cotizá tu equipo fácil.</div>
+<div class="cot-titulo"><i data-lucide="recycle" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i> Tu equipo vale.</div>
+<div class="cot-sub cot-sub-outfit">Te damos la mejor oferta.</div>
 <div class="valor-card">
 <div>
 <div class="valor-label">Tu equipo</div>
@@ -988,6 +965,20 @@
   document.getElementById('resultadoCerrar').addEventListener('click', () => {
     resultado.classList.remove('visible');
   });
+</script>
+<script>
+  (function(){
+    const track = document.getElementById('heroTrack');
+    const dots = document.querySelectorAll('#heroDots .dot');
+    let idx = 0;
+    const total = dots.length;
+    function ir(i){
+      idx = i;
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      dots.forEach((d,n) => d.classList.toggle('activo', n === idx));
+    }
+    setInterval(() => { ir((idx + 1) % total); }, 4000);
+  })();
 </script>
 <script>lucide.createIcons();</script>
 </body>
