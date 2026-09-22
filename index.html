@@ -742,6 +742,61 @@
     font-size:0.78rem; font-weight:500;
   }
   @media(min-width:800px){ .foot-grid{ grid-template-columns:1.4fr 1fr 1fr; } }
+
+  /* ===== SECCIÓN: STATS (prueba social) ===== */
+  .seccion-stats{
+    background:var(--negro);
+    padding:32px 20px 28px;
+    text-align:center;
+  }
+  .stats-titulo{
+    font-family:'Newsreader', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    font-size:2.25rem;
+    line-height:2.4rem;
+    color:var(--blanco);
+    margin:0 auto 8px;
+  }
+  .stats-bajada{
+    font-family:'Outfit', sans-serif;
+    font-weight:600;
+    font-size:1.125rem;
+    line-height:1.4rem;
+    color:#D8D8DC;
+    margin:0 auto 24px;
+  }
+  @media (min-width:768px){
+    .stats-titulo{ font-size:3.5rem; line-height:3.6rem; }
+    .stats-bajada{ font-size:1.4rem; line-height:1.6rem; }
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:8px;
+  }
+  .stat-item{
+    background:#1A1A1C;
+    border-radius:14px;
+    padding:18px 8px;
+  }
+  .stat-numero{
+    font-family:'Newsreader', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size:1.75rem;
+    line-height:1.9rem;
+    color:var(--rojo);
+    margin-bottom:4px;
+  }
+  .stat-label{
+    font-family:'Figtree', sans-serif;
+    font-weight:600;
+    font-size:0.7rem;
+    line-height:0.9rem;
+    color:#B5B5BA;
+  }
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -927,6 +982,27 @@
       </div>
     </div>
     <div class="regalos-nota"><strong>BONUS GRATIS:</strong> Te incluimos todos los accesorios, cargador, funda y cristal antishock</div>
+  </section>
+
+
+  <!-- ===== SECCIÓN: STATS (prueba social) ===== -->
+  <section class="seccion-stats" id="stats">
+    <h2 class="stats-titulo">Confían en nosotros</h2>
+    <p class="stats-bajada">Los números hablan solos</p>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-numero">+500</div>
+        <div class="stat-label">iPhones entregados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">2+</div>
+        <div class="stat-label">años en el mercado</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-numero">100%</div>
+        <div class="stat-label">financiación propia</div>
+      </div>
+    </div>
   </section>
 
 
