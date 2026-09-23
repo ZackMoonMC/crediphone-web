@@ -1178,6 +1178,37 @@
     line-height:0.9rem;
     color:#B5B5BA;
   }
+
+  /* ===== SCROLL REVEAL (reusable en toda la pagina) ===== */
+  .scroll-reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .scroll-reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ===== POPUP DE REGALO (celebracion) ===== */
+  .regalo-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:400;
+  }
+  .regalo-overlay.visible{ display:flex; }
+  .regalo-overlay img{
+    width:100%;
+    max-width:340px;
+    border-radius:24px;
+    display:block;
+    cursor:pointer;
+  }
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -1197,14 +1228,16 @@
 <!-- 1. MARQUEE -->
 <div class="marquee-wrap">
 <div class="marquee-track">
-<span class="marquee-item">🇺🇸 DIRECTO DE EE.UU</span>
+<span class="marquee-item">🇺🇸 IMPORTADOS EE.UU</span>
 <span class="marquee-item">✅ 100% GARANTIZADO</span>
 <span class="marquee-item">🚚 DELIVERY GRATIS</span>
 <span class="marquee-item">🔥 ENTREGA INMEDIATA</span>
-<span class="marquee-item">🇺🇸 DIRECTO DE EE.UU</span>
+<span class="marquee-item">🇵🇾 ENVIOS A TODO PY</span>
+<span class="marquee-item">🇺🇸 IMPORTADOS EE.UU</span>
 <span class="marquee-item">✅ 100% GARANTIZADO</span>
 <span class="marquee-item">🚚 DELIVERY GRATIS</span>
 <span class="marquee-item">🔥 ENTREGA INMEDIATA</span>
+<span class="marquee-item">🇵🇾 ENVIOS A TODO PY</span>
 </div>
 </div>
 <!-- 2. HEADER -->
@@ -1346,12 +1379,12 @@
 </div>
 <!-- 5. SECCIÓN DE FACILIDAD -->
 <div class="seccion-facilidad" id="facilidad">
-<h2 class="facilidad-titular">
+<h2 class="facilidad-titular scroll-reveal">
   <i data-lucide="hand-coins" style="width:32px;height:32px;vertical-align:-6px;margin-right:8px;"></i>
   Es muy fácil.
 </h2>
 <p class="facilidad-subtitulo">3 pasos, ¡listo!</p>
-<div class="card-pasos">
+<div class="card-pasos scroll-reveal">
 <div class="paso">
 <div class="paso-numero">01</div>
 <div class="paso-contenido">
@@ -1380,25 +1413,25 @@
 
   <!-- ===== 6. SECCIÓN: TU IPHONE A CUOTAS NO VIENE SOLO ===== -->
   <section class="seccion-regalos" id="regalos">
-    <h2 class="regalos-titulo"><i data-lucide="gift" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i> Te damos más</h2>
+    <h2 class="regalos-titulo scroll-reveal"><i data-lucide="gift" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i> Te damos más</h2>
     <div class="regalos-bajada">¡Un regalo a elección!</div>
-    <div class="regalos-grid">
-      <div class="regalo-card">
+    <div class="regalos-grid scroll-reveal">
+      <div class="regalo-card" onclick="abrirRegalo('smartwatch')" style="cursor:pointer;">
         <img class="regalo-foto" src="img/regalo-smartwatch.png" alt="Smartwatch" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
         <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-smartwatch.png</small></div>
         <div class="regalo-nombre">Smartwatch</div>
       </div>
-      <div class="regalo-card">
-        <img class="regalo-foto" src="img/regalo-auriculares.png" alt="Auriculares" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
+      <div class="regalo-card" onclick="abrirRegalo('airpods')" style="cursor:pointer;">
+        <img class="regalo-foto" src="img/regalo-auriculares.png" alt="AirPods" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
         <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-auriculares.png</small></div>
-        <div class="regalo-nombre">Auriculares</div>
+        <div class="regalo-nombre">AirPods</div>
       </div>
-      <div class="regalo-card">
+      <div class="regalo-card" onclick="abrirRegalo('vaso')" style="cursor:pointer;">
         <img class="regalo-foto" src="img/regalo-vaso-termico.png" alt="Vaso térmico" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
         <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-vaso-termico.png</small></div>
         <div class="regalo-nombre">Vaso térmico</div>
       </div>
-      <div class="regalo-card">
+      <div class="regalo-card" onclick="abrirRegalo('bolso')" style="cursor:pointer;">
         <img class="regalo-foto" src="img/regalo-bolso-string.png" alt="Bolso String" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
         <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-bolso-string.png</small></div>
         <div class="regalo-nombre">Bolso String</div>
@@ -1406,6 +1439,11 @@
     </div>
     <div class="regalos-nota"><strong>BONUS GRATIS:</strong> Te incluimos todos los accesorios, cargador, funda y cristal antishock</div>
   </section>
+
+  <!-- ===== POPUP DE REGALO (celebracion) ===== -->
+  <div class="regalo-overlay" id="regaloOverlay" onclick="cerrarRegalo()">
+    <img id="regaloImg" src="" alt="Tu regalo" onclick="event.stopPropagation(); irAlFormularioDesdeRegalo();">
+  </div>
 
 
   <!-- ===== SECCIÓN: DESCUBRÍ ===== -->
@@ -1463,7 +1501,7 @@
 
   <!-- ===== SECCIÓN: STATS (prueba social) ===== -->
   <section class="seccion-stats" id="stats">
-    <h2 class="stats-titulo">Confían en nosotros</h2>
+    <h2 class="stats-titulo scroll-reveal">Confían en nosotros</h2>
     <p class="stats-bajada">Los números hablan solos</p>
     <div class="stats-grid">
       <div class="stat-item">
@@ -1514,7 +1552,7 @@
 
   <!-- ===== SECCIÓN: FORMULARIO ===== -->
   <section class="seccion-form" id="formulario">
-    <h2 class="form-titulo">Solicitá tu iPhone</h2>
+    <h2 class="form-titulo scroll-reveal">Solicitá tu iPhone</h2>
     <p class="form-bajada">Completa tus datos y te escribimos</p>
 
     <form id="formSolicitud">
@@ -1693,6 +1731,10 @@
     document.querySelectorAll('.cap-btn').forEach(b => b.classList.remove('activa'));
     btnEl.classList.add('activa');
     actualizarValor();
+    setTimeout(() => {
+      const valorCard = document.querySelector('.valor-card');
+      if (valorCard) valorCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 150);
   }
 
   function actualizarValor(){
@@ -1934,6 +1976,41 @@
     document.getElementById('menuOverlay').classList.remove('abierto');
     document.getElementById('menuPanel').classList.remove('abierto');
   }
+
+  /* ===== POPUP DE REGALO (celebración) ===== */
+  const fotosRegalo = {
+    smartwatch: 'img/popup-regalo-sin-borde.png',
+    airpods:    'img/popup-airpods-sin-borde.png',
+    vaso:       'img/popup-vaso-sin-borde.png',
+    bolso:      'img/popup-bolso-sin-borde.png'
+  };
+  function abrirRegalo(tipo){
+    const overlay = document.getElementById('regaloOverlay');
+    const img = document.getElementById('regaloImg');
+    img.src = fotosRegalo[tipo];
+    overlay.classList.add('visible');
+  }
+  function cerrarRegalo(){
+    document.getElementById('regaloOverlay').classList.remove('visible');
+  }
+  function irAlFormularioDesdeRegalo(){
+    cerrarRegalo();
+    setTimeout(() => {
+      const form = document.getElementById('formulario');
+      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+  }
+
+  /* ===== SCROLL REVEAL ===== */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
 </script>
 <script>
   (function(){
