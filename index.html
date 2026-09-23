@@ -682,14 +682,15 @@
 
 
   /* ===== SECCIÓN: SMART DEAL ===== */
-  .seccion-smartdeal{
+  /* ===== SECCIÓN: FORMULARIO ===== */
+  .seccion-form{
     background:var(--blanco);
     max-width:1100px;
     margin:0 auto;
     padding:32px 20px 28px;
     text-align:center;
   }
-  .smartdeal-titulo{
+  .form-titulo{
     font-family:'Newsreader', serif;
     font-optical-sizing:auto;
     font-weight:600;
@@ -699,7 +700,7 @@
     color:var(--negro);
     margin:0 auto 10px;
   }
-  .smartdeal-bajada{
+  .form-bajada{
     font-family:'Outfit', sans-serif;
     font-weight:600;
     font-size:1.125rem;
@@ -708,61 +709,90 @@
     margin:0 auto 24px;
   }
   @media (min-width:768px){
-    .smartdeal-titulo{ font-size:3.5rem; line-height:3.6rem; }
-    .smartdeal-bajada{ font-size:1.4rem; line-height:1.6rem; }
+    .form-titulo{ font-size:3.5rem; line-height:3.6rem; }
+    .form-bajada{ font-size:1.4rem; line-height:1.6rem; }
   }
 
-  .card-confianza{
-    background:var(--gris-fondo);
-    border-radius:16px;
-    padding:8px;
+  #formSolicitud{
     display:flex;
     flex-direction:column;
-  }
-  .punto{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:14px 16px;
+    gap:12px;
+    max-width:420px;
+    margin:0 auto;
     text-align:left;
   }
-  .punto-icono{
-    flex-shrink:0;
-    width:40px;
-    height:40px;
-    background:var(--blanco);
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .punto-contenido{ display:flex; flex-direction:column; gap:2px; }
-  .punto-titulo{
+  #formSolicitud input,
+  #formSolicitud select{
+    width:100%;
+    background:var(--gris-fondo);
+    border:1.5px solid transparent;
+    border-radius:12px;
+    padding:14px 16px;
     font-family:'Figtree', sans-serif;
-    font-weight:700;
     font-size:0.95rem;
-    line-height:1.2rem;
+    color:var(--negro);
+    outline:none;
+    transition:border-color .2s ease;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  #formSolicitud select{
+    color:#5B5B60;
+  }
+  #formSolicitud select:valid{
     color:var(--negro);
   }
-  .punto-desc{
-    font-family:'Figtree', sans-serif;
-    font-weight:400;
-    font-size:0.8rem;
-    line-height:1.1rem;
-    color:var(--gris-texto);
+  #formSolicitud input:focus,
+  #formSolicitud select:focus{
+    border-color:var(--rojo);
+    background:var(--blanco);
   }
-  @media (min-width:768px){
-    .card-confianza{
-      flex-direction:row;
-      padding:24px 8px;
-    }
-    .punto{
-      flex:1;
-      border-right:1px solid #E2E2E5;
-    }
-    .punto:last-child{
-      border-right:none;
-    }
+  #btnEnviarForm{
+    background:var(--rojo);
+    color:var(--blanco);
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    padding:15px;
+    border:none;
+    border-radius:999px;
+    margin-top:6px;
+    cursor:pointer;
+    transition:opacity .2s ease;
+  }
+  #btnEnviarForm:disabled{
+    opacity:0.6;
+    cursor:default;
+  }
+
+  .form-crediphone{
+    max-width:420px;
+    margin:28px auto 0;
+    padding-top:20px;
+    border-top:1px solid #E9E9EB;
+    text-align:center;
+  }
+  .form-crediphone-nombre{
+    font-family:'Figtree', sans-serif;
+    font-weight:800;
+    font-size:1rem;
+    color:var(--rojo);
+    margin-bottom:10px;
+  }
+  .form-badges{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+  .form-badges span{
+    background:var(--gris-fondo);
+    color:var(--gris-texto);
+    font-family:'Figtree', sans-serif;
+    font-weight:600;
+    font-size:0.75rem;
+    padding:6px 12px;
+    border-radius:999px;
   }
 
   /* ===== FOOTER ===== */
@@ -966,6 +996,7 @@
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
   <!--
@@ -1076,7 +1107,7 @@
 <img alt="Modelos disponibles" src="img/hero-slide-2.png"/>
 </a>
 <a class="hero-slide" href="#regalos">
-<img alt="Smart Deal: un iPhone increible a mejor precio" src="img/hero-slide-3.png"/>
+<img alt="Solicita tu iPhone" src="img/hero-slide-3.png"/>
 </a>
 <a class="hero-slide" href="#trade-in">
 <img alt="Trade-in: tu iPhone actual vale mas" src="img/hero-slide-4.png"/>
@@ -1257,42 +1288,32 @@
   </section>
 
 
-  <!-- ===== SECCIÓN: SMART DEAL ===== -->
-  <section class="seccion-smartdeal" id="smart-deal">
-    <h2 class="smartdeal-titulo">
-      <i data-lucide="handshake" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i>
-      Smart Deal
-    </h2>
-    <p class="smartdeal-bajada">Proceso simple y confiable</p>
+  <!-- ===== SECCIÓN: FORMULARIO ===== -->
+  <section class="seccion-form" id="formulario">
+    <h2 class="form-titulo">Solicitá tu iPhone</h2>
+    <p class="form-bajada">Completa tus datos y te escribimos</p>
 
-    <div class="card-confianza">
-      <div class="punto">
-        <div class="punto-icono"><i data-lucide="wallet" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
-        <div class="punto-contenido">
-          <div class="punto-titulo">Financiación propia</div>
-          <div class="punto-desc">Sin bancos ni tarjetas de crédito</div>
-        </div>
-      </div>
-      <div class="punto">
-        <div class="punto-icono"><i data-lucide="shield-check" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
-        <div class="punto-contenido">
-          <div class="punto-titulo">Crediphone Care</div>
-          <div class="punto-desc">1 año de garantía en tu equipo</div>
-        </div>
-      </div>
-      <div class="punto">
-        <div class="punto-icono"><i data-lucide="rotate-ccw" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
-        <div class="punto-contenido">
-          <div class="punto-titulo">Compra segura</div>
-          <div class="punto-desc">Tu pedido o tu dinero de vuelta</div>
-        </div>
-      </div>
-      <div class="punto">
-        <div class="punto-icono"><i data-lucide="badge-check" style="width:20px;height:20px;" stroke="#111111" stroke-width="1.8"></i></div>
-        <div class="punto-contenido">
-          <div class="punto-titulo">Equipos certificados</div>
-          <div class="punto-desc">Piezas originales de fábrica</div>
-        </div>
+    <form id="formSolicitud">
+      <input type="text" name="nombre" placeholder="Nombre y apellido">
+      <input type="text" name="cedula" placeholder="Número de cédula" required>
+      <input type="tel" name="telefono" placeholder="Número de teléfono" required>
+      <select name="modelo" required>
+        <option value="" disabled selected>¿Qué modelo te gusta?</option>
+        <option value="iPhone 18 Pro Max">iPhone 18 Pro Max</option>
+        <option value="iPhone 17 Pro Max">iPhone 17 Pro Max</option>
+        <option value="iPhone 16">iPhone 16</option>
+        <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+      </select>
+      <button type="submit" id="btnEnviarForm">Enviar solicitud</button>
+    </form>
+
+    <div class="form-crediphone">
+      <div class="form-crediphone-nombre">Crediphone</div>
+      <div class="form-badges">
+        <span>Financiación propia</span>
+        <span>Crediphone Care</span>
+        <span>Compra segura</span>
+        <span>Equipos certificados</span>
       </div>
     </div>
   </section>
@@ -1320,7 +1341,7 @@
         <a href="#facilidad">Cómo funciona</a>
         <a href="#regalos">Regalos</a>
         <a href="#trade-in">Trade-in</a>
-        <a href="#smart-deal">Smart Deal</a>
+        <a href="#formulario">Solicitá tu iPhone</a>
       </div>
       <div class="foot-col">
         <h4>Contacto</h4>
@@ -1601,6 +1622,37 @@
       coach.classList.remove('activo');
     }, 3200);
   }
+</script>
+<script>
+  (function(){
+    emailjs.init("7K8XPiAfK7njJ0gnc");
+
+    const form = document.getElementById('formSolicitud');
+    if (!form) return;
+    const btn = document.getElementById('btnEnviarForm');
+    const textoOriginal = btn.textContent;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      emailjs.sendForm('service_2bwhx0i', 'template_nqamjv8', form)
+        .then(() => {
+          btn.textContent = '¡Listo! Te vamos a contactar ✓';
+          form.reset();
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.textContent = textoOriginal;
+          }, 4000);
+        }, (error) => {
+          btn.disabled = false;
+          btn.textContent = 'Error, intentá de nuevo';
+          console.error('EmailJS error:', error);
+          setTimeout(() => { btn.textContent = textoOriginal; }, 3000);
+        });
+    });
+  })();
 </script>
 <script>lucide.createIcons();</script>
 </body>
