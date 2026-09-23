@@ -150,75 +150,183 @@
     position:relative;
   }
 
-  .resultado-cuota{
+  /* ===== POPUP DE CUOTAS (modal) ===== */
+  .pc-overlay{
     display:none;
-    position:absolute;
-    left:16px;
-    right:16px;
-    bottom:16px;
-    padding:16px;
-    background:var(--blanco);
-    border-radius:16px;
-    box-shadow:0 10px 28px rgba(0,0,0,0.20);
-    flex-direction:column;
-    gap:12px;
-    z-index:20;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    align-items:center;
+    justify-content:center;
+    padding:20px 0;
+    z-index:100;
   }
-  .resultado-cuota.visible{ display:flex; }
-  .resultado-top{
+  .pc-overlay.visible{ display:flex; }
+  .pc-popup{
+    background:var(--blanco);
+    width:calc(100% - 32px);
+    max-width:480px;
+    border-radius:24px;
+    padding:16px 20px 24px;
+    position:relative;
+    max-height:90vh;
+    overflow-y:auto;
+  }
+  .pc-cerrar{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--gris-fondo);
+    border:none;
     display:flex;
     align-items:center;
-    gap:12px;
+    justify-content:center;
+    cursor:pointer;
+    z-index:5;
   }
-  .resultado-foto{
-    width:44px; height:44px;
-    border-radius:10px;
-    object-fit:cover;
-    background:var(--gris-fondo);
+  .pc-tag{
+    display:inline-block;
+    background:#FDECEC;
+    color:var(--rojo);
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:0.78rem;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:10px;
+  }
+  .pc-top{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:14px;
+  }
+  .pc-info{ flex:1; }
+  .pc-nombre{
+    font-family:'Figtree', sans-serif;
+    font-weight:800;
+    font-size:1.6rem;
+    line-height:1.85rem;
+    color:var(--negro);
+  }
+  .pc-capacidad{
+    font-family:'Figtree', sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    color:var(--gris-texto);
+    margin-top:6px;
+  }
+  .pc-foto{
+    width:140px;
+    height:140px;
+    object-fit:contain;
     flex-shrink:0;
   }
-  .resultado-texto{ font-size:13px; color:var(--gris-texto); margin-bottom:2px; }
-  .resultado-nombre{ font-weight:700; font-size:15px; color:var(--negro); }
-  .resultado-cuotas-grid{
+  .pc-seccion-label{
+    font-family:'Figtree', sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+    color:var(--negro);
+    margin-bottom:12px;
+  }
+  .pc-cuotas-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
     gap:8px;
+    margin-bottom:12px;
   }
-  .cuota-opcion{
+  .pc-cuota-item{
     background:var(--gris-fondo);
     border:1.5px solid transparent;
-    border-radius:10px;
-    padding:8px 4px;
+    border-radius:14px;
+    padding:12px 6px;
     text-align:center;
+    cursor:pointer;
   }
-  .cuota-opcion.activa{
+  .pc-cuota-item.activa{
     background:#FDECEC;
     border-color:var(--rojo);
   }
-  .cuota-opcion .cuota-meses{
-    font-size:11px; font-weight:700; color:var(--gris-texto);
+  .pc-cuota-meses{
+    font-family:'Figtree', sans-serif;
+    font-weight:800;
+    font-size:1rem;
+    color:var(--gris-texto);
+    margin-bottom:6px;
   }
-  .cuota-opcion.activa .cuota-meses{ color:var(--rojo); }
-  .cuota-opcion .cuota-monto{
-    font-size:13px; font-weight:800; color:var(--negro); margin-top:2px;
+  .pc-cuota-item.activa .pc-cuota-meses{ color:var(--rojo); }
+  .pc-cuota-monto{
+    font-family:'Figtree', sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+    color:var(--negro);
   }
-  .resultado-acciones{
+  .pc-cuota-porMes{
+    font-family:'Figtree', sans-serif;
+    font-size:0.68rem;
+    color:var(--gris-texto);
+  }
+  .pc-badges{
     display:flex;
-    justify-content:flex-end;
+    gap:10px;
+    margin-bottom:14px;
   }
-  .resultado-monto{ font-weight:700; font-size:16px; color:var(--negro); }
-  .resultado-monto span{ font-size:11px; font-weight:500; color:var(--gris-texto); }
-  .resultado-btn{
-    background:var(--rojo); color:var(--blanco);
-    font-size:13px; font-weight:700;
-    padding:10px 22px; border-radius:999px;
-    text-decoration:none; white-space:nowrap;
+  .pc-badge-item{
+    flex:1;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--gris-fondo);
+    border-radius:14px;
+    padding:10px 12px;
   }
-  .resultado-btn-info{
-    background:var(--negro); color:var(--blanco);
-    font-size:12px; font-weight:700;
-    padding:8px 16px; border-radius:999px;
-    text-decoration:none; white-space:nowrap;
+  .pc-badge-icono{
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    background:var(--blanco);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .pc-badge-texto{
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:0.8rem;
+    line-height:1.05rem;
+    color:var(--gris-texto);
+  }
+  .pc-btn-info{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+    background:var(--rojo);
+    color:var(--blanco);
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    padding:16px;
+    border:none;
+    border-radius:999px;
+    text-align:center;
+    text-decoration:none;
+  }
+  .pc-tagline{
+    text-align:center;
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:0.7rem;
+    letter-spacing:0.12em;
+    color:#B5B5BA;
+    text-transform:uppercase;
+    margin-top:10px;
+    line-height:1.3rem;
   }
   .nota-selector{
     margin:0 20px 16px;
@@ -1032,7 +1140,7 @@
 </svg>
 </button>
 <img alt="Crediphone" src="img/crediphone-logo.png"/>
-<a aria-label="WhatsApp" class="header-btn" href="https://wa.me/595">
+<a aria-label="WhatsApp" class="header-btn" href="https://wa.me/595992401579?text=Hola!%20Quiero%20hacer%20una%20consulta.">
 <svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <path d="M6 8V6C6 3.8 7.8 2 10 2H14C16.2 2 18 3.8 18 6V8" stroke="#111111" stroke-linecap="round" stroke-width="1.8"></path>
 <path d="M4 8H20L19 21H5L4 8Z" stroke="#111111" stroke-linejoin="round" stroke-width="1.8"></path>
@@ -1055,10 +1163,7 @@
 </svg>
 <select class="selector-modelo" id="selectorModelo">
 <option disabled="" selected="" value="">Elegí tu modelo</option>
-<option value="18promax">iPhone 18 Pro Max</option>
 <option value="17promax">iPhone 17 Pro Max</option>
-<option value="16">iPhone 16</option>
-<option value="13pro">iPhone 13 Pro</option>
 </select>
 <svg class="selector-flecha" fill="none" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
 <path d="M6 9L12 15L18 9" stroke="#5B5B60" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
@@ -1066,36 +1171,63 @@
 <span class="coach-mark" id="coachMark">Tocá acá 👆</span>
 </div>
 </div>
-<div class="resultado-cuota" id="resultadoCuota">
-<button aria-label="Cerrar" class="resultado-cerrar" id="resultadoCerrar">
-<svg fill="none" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 6L18 18M6 18L18 6" stroke="#8A8A8F" stroke-linecap="round" stroke-width="2"></path>
-</svg>
-</button>
-<div class="resultado-top">
-<img alt="" class="resultado-foto" id="resultadoFoto" src="assets/imagen-placeholder.png"/>
-<div>
-<div class="resultado-texto">Tu modelo</div>
-<div class="resultado-nombre" id="resultadoNombre">Modelo</div>
-</div>
-</div>
-<div class="resultado-cuotas-grid" id="resultadoCuotasGrid">
-<div class="cuota-opcion">
-<div class="cuota-meses">6x</div>
-<div class="cuota-monto" id="cuota6">₲XXX.XXX</div>
-</div>
-<div class="cuota-opcion activa">
-<div class="cuota-meses">12x</div>
-<div class="cuota-monto" id="cuota12">₲XXX.XXX</div>
-</div>
-<div class="cuota-opcion">
-<div class="cuota-meses">18x</div>
-<div class="cuota-monto" id="cuota18">₲XXX.XXX</div>
-</div>
-</div>
-<div class="resultado-acciones">
-<a class="resultado-btn-info" href="#" id="resultadoBtnInfo">Más info</a>
-</div>
+<div class="pc-overlay" id="pcOverlay">
+  <div class="pc-popup">
+    <button aria-label="Cerrar" class="pc-cerrar" id="pcCerrar">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="#5B5B60" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="pc-tag" id="pcEstado">Nuevo</div>
+
+    <div class="pc-top">
+      <div class="pc-info">
+        <div class="pc-nombre" id="pcNombre">iPhone 17<br>Pro Max</div>
+        <div class="pc-capacidad" id="pcCapacidad">256GB</div>
+      </div>
+      <img class="pc-foto" id="pcFoto" src="" alt="">
+    </div>
+
+    <div class="pc-seccion-label">Elegí tu plan</div>
+    <div class="pc-cuotas-grid">
+      <div class="pc-cuota-item" data-meses="6">
+        <div class="pc-cuota-meses">6 cuotas</div>
+        <div class="pc-cuota-monto" id="pcCuota6">₲XXX.XXX</div>
+        <div class="pc-cuota-porMes">por mes</div>
+      </div>
+      <div class="pc-cuota-item activa" data-meses="12">
+        <div class="pc-cuota-meses">12 cuotas</div>
+        <div class="pc-cuota-monto" id="pcCuota12">₲XXX.XXX</div>
+        <div class="pc-cuota-porMes">por mes</div>
+      </div>
+      <div class="pc-cuota-item" data-meses="18">
+        <div class="pc-cuota-meses">18 cuotas</div>
+        <div class="pc-cuota-monto" id="pcCuota18">₲XXX.XXX</div>
+        <div class="pc-cuota-porMes">por mes</div>
+      </div>
+    </div>
+
+    <div class="pc-badges">
+      <div class="pc-badge-item">
+        <div class="pc-badge-icono">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M8 2v4M16 2v4"/><circle cx="8" cy="14" r="1.2" fill="#111111" stroke="none"/><circle cx="12" cy="14" r="1.2" fill="#111111" stroke="none"/><circle cx="16" cy="14" r="1.2" fill="#111111" stroke="none"/></svg>
+        </div>
+        <div class="pc-badge-texto">Primera cuota<br>a los 30 días</div>
+      </div>
+      <div class="pc-badge-item">
+        <div class="pc-badge-icono">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.8"><circle cx="12" cy="9" r="6"/><path d="M9 14.2L7 22l5-3 5 3-2-7.8"/><path d="M9.5 9.5L11 11l3.5-3.5"/></svg>
+        </div>
+        <div class="pc-badge-texto">Equipos Apple<br>originales</div>
+      </div>
+    </div>
+
+    <a href="#" class="pc-btn-info" id="pcBtnInfo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.41 1.31-1.94 1.35-.5.05-1.06.24-3.6-.75-3.04-1.19-5-4.25-5.15-4.45-.15-.2-1.23-1.64-1.23-3.13s.78-2.22 1.05-2.53c.27-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.69.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>
+      Más información
+    </a>
+
+    <div class="pc-tagline">TU PRÓXIMO IPHONE<br>TE LLEGA A CASA</div>
+  </div>
 </div>
 <!-- 4. HERO CARRUSEL (4 fotos, swipe automatico) -->
 <div class="hero-carrusel" id="heroCarrusel">
@@ -1150,7 +1282,7 @@
 </div>
 </div>
 </div>
-<a class="btn-cta" href="https://wa.me/595992401579"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.41 1.31-1.94 1.35-.5.05-1.06.24-3.6-.75-3.04-1.19-5-4.25-5.15-4.45-.15-.2-1.23-1.64-1.23-3.13s.78-2.22 1.05-2.53c.27-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.69.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>Quiero más información</a>
+<a class="btn-cta" href="https://wa.me/595992401579?text=Hola!%20Quiero%20hacer%20una%20consulta."><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.41 1.31-1.94 1.35-.5.05-1.06.24-3.6-.75-3.04-1.19-5-4.25-5.15-4.45-.15-.2-1.23-1.64-1.23-3.13s.78-2.22 1.05-2.53c.27-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.69.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>Quiero más información</a>
 </div>
 
 
@@ -1355,7 +1487,7 @@
         </a>
         <a href="tel:+595992401579" class="foot-contact-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>+595 000 000 000</span>
+          <span>+595 992 401 579</span>
         </a>
       </div>
     </div>
@@ -1451,7 +1583,7 @@
       cta.href = '#';
       cta.dataset.nombre = nombre;
       cta.dataset.valor = 'US$ ' + valor;
-      cta.dataset.wahref = 'https://wa.me/595992401579?text=' + encodeURIComponent('Hola! Quiero entregar mi ' + nombre + ' como parte de pago');
+      cta.dataset.wahref = 'https://wa.me/595992401579?text=' + encodeURIComponent('Hola! Quiero hacer una consulta.');
     } else {
       montoEl.textContent = '—';
       cta.classList.remove('activo');
@@ -1529,7 +1661,7 @@
     doc.text('Escribinos por WhatsApp para confirmar', 10, 178);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
-    doc.text('+595 000 000 000', 10, 185);
+    doc.text('+595 992 401 579', 10, 185);
 
     doc.save('cotizacion-crediphone.pdf');
   }
@@ -1547,34 +1679,76 @@
 </script>
 
 <script>
+  /* Multiplicadores reales para calcular cada cuota a partir del precio financiado */
+  const MULTIPLICADORES = { 6: 0.19425, 12: 0.110229, 18: 0.083167 };
+
+  function calcularCuota(precio, meses){
+    return Math.round(precio * MULTIPLICADORES[meses]);
+  }
+  function formatearGs(valor){
+    return '₲' + valor.toLocaleString('es-PY');
+  }
+
+  /* --- MODELO DE PRUEBA: solo iPhone 17 Pro Max cargado. --- */
+  /* Para sumar el resto: pegá mas lineas con esta misma estructura,   */
+  /* una por cada modelo. El precio es el financiado (no el de contado). */
   const datosCuotas = {
-    "18promax": { nombre: "iPhone 18 Pro Max", cuota6: "₲XXX.XXX", cuota12: "₲913.000", cuota18: "₲XXX.XXX", foto: "" },
-    "17promax": { nombre: "iPhone 17 Pro Max", cuota6: "₲XXX.XXX", cuota12: "₲XXX.XXX", cuota18: "₲XXX.XXX", foto: "" },
-    "16":       { nombre: "iPhone 16",         cuota6: "₲XXX.XXX", cuota12: "₲XXX.XXX", cuota18: "₲XXX.XXX", foto: "" },
-    "13pro":    { nombre: "iPhone 13 Pro",     cuota6: "₲XXX.XXX", cuota12: "₲XXX.XXX", cuota18: "₲XXX.XXX", foto: "" }
+    "17promax": {
+      nombre: "iPhone 17",
+      variante: "Pro Max",
+      precio: 8282000,
+      estado: "Nuevo",
+      capacidad: "256GB",
+      foto: "img/popup-17-promax.png"
+    }
   };
+
   const select = document.getElementById('selectorModelo');
-  const resultado = document.getElementById('resultadoCuota');
-  const nombreEl = document.getElementById('resultadoNombre');
-  const fotoEl = document.getElementById('resultadoFoto');
-  const cuota6El = document.getElementById('cuota6');
-  const cuota12El = document.getElementById('cuota12');
-  const cuota18El = document.getElementById('cuota18');
-  const btnInfoEl = document.getElementById('resultadoBtnInfo');
+  const overlay = document.getElementById('pcOverlay');
+  const estadoEl = document.getElementById('pcEstado');
+  const nombreEl = document.getElementById('pcNombre');
+  const capacidadEl = document.getElementById('pcCapacidad');
+  const fotoEl = document.getElementById('pcFoto');
+  const cuota6El = document.getElementById('pcCuota6');
+  const cuota12El = document.getElementById('pcCuota12');
+  const cuota18El = document.getElementById('pcCuota18');
+  const btnInfoEl = document.getElementById('pcBtnInfo');
+  const cuotaItems = document.querySelectorAll('.pc-cuota-item');
+
+  function abrirPopup(d){
+    estadoEl.textContent = d.estado;
+    nombreEl.innerHTML = d.nombre + '<br>' + d.variante;
+    capacidadEl.textContent = d.capacidad;
+    fotoEl.src = d.foto;
+    fotoEl.alt = d.nombre + ' ' + d.variante;
+
+    cuota6El.textContent = formatearGs(calcularCuota(d.precio, 6));
+    cuota12El.textContent = formatearGs(calcularCuota(d.precio, 12));
+    cuota18El.textContent = formatearGs(calcularCuota(d.precio, 18));
+
+    btnInfoEl.href = 'https://wa.me/595992401579?text=' + encodeURIComponent('Hola! Quiero hacer una consulta.');
+
+    overlay.classList.add('visible');
+  }
+
   select.addEventListener('change', () => {
     const d = datosCuotas[select.value];
     if (!d) return;
-    nombreEl.textContent = d.nombre;
-    fotoEl.src = d.foto;
-    fotoEl.alt = d.nombre;
-    cuota6El.textContent = d.cuota6;
-    cuota12El.textContent = d.cuota12;
-    cuota18El.textContent = d.cuota18;
-    btnInfoEl.href = 'https://wa.me/595992401579?text=' + encodeURIComponent('Hola! Quiero más info sobre el ' + d.nombre);
-    resultado.classList.add('visible');
+    abrirPopup(d);
   });
-  document.getElementById('resultadoCerrar').addEventListener('click', () => {
-    resultado.classList.remove('visible');
+
+  document.getElementById('pcCerrar').addEventListener('click', () => {
+    overlay.classList.remove('visible');
+  });
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.classList.remove('visible');
+  });
+
+  cuotaItems.forEach(item => {
+    item.addEventListener('click', () => {
+      cuotaItems.forEach(i => i.classList.remove('activa'));
+      item.classList.add('activa');
+    });
   });
 </script>
 <script>
