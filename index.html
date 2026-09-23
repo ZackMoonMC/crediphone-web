@@ -1246,7 +1246,7 @@
       Más información
     </a>
 
-    <div class="pc-tagline">TU PRÓXIMO IPHONE<br>TE LLEGA A CASA</div>
+    <div class="pc-tagline">SUJETO A ANALISIS<br>CREDITICIO</div>
   </div>
 </div>
 <!-- 4. HERO CARRUSEL (4 fotos, swipe automatico) -->
@@ -1297,7 +1297,7 @@
 <div class="paso">
 <div class="paso-numero">03</div>
 <div class="paso-contenido">
-<div class="paso-titulo">Te lo llevamos y disfrutás</div>
+<div class="paso-titulo">Te lo llevamos, disfrutás</div>
 <div class="paso-desc">Recibís tu iPhone y lo disfrutás desde el primer día, mientras pagás tus cuotas.</div>
 </div>
 </div>
@@ -1360,13 +1360,13 @@
         <div class="descubri-slide">
           <img src="img/descubri-3-conexion.png" alt="La Enamorada">
           <div class="descubri-nombre-wrap">
-            <div class="descubri-nombre">La Enamorada</div>
+            <div class="descubri-nombre">La Intensa</div>
           </div>
         </div>
         <div class="descubri-slide">
           <img src="img/descubri-4-paz.png" alt="La Tranquila">
           <div class="descubri-nombre-wrap">
-            <div class="descubri-nombre">La Tranquila</div>
+            <div class="descubri-nombre">La Hogareña</div>
           </div>
         </div>
         <div class="descubri-slide">
@@ -1465,7 +1465,7 @@
         <span>Financiación propia</span>
         <span>Crediphone Care</span>
         <span>Compra segura</span>
-        <span>Equipos certificados</span>
+        <span>Equipos Apple originales</span>
       </div>
     </div>
   </section>
@@ -1516,23 +1516,71 @@
 
 <script>
 
-  const datos = {
-    "11": { variantes: ["11", "11 Pro", "11 Pro Max"], base: 250 },
-    "12": { variantes: ["12 Mini", "12", "12 Pro", "12 Pro Max"], base: 350 },
-    "13": { variantes: ["13 Mini", "13", "13 Pro", "13 Pro Max"], base: 450 },
-    "14": { variantes: ["14", "14 Plus", "14 Pro", "14 Pro Max"], base: 550 },
-    "15": { variantes: ["15", "15 Plus", "15 Pro", "15 Pro Max"], base: 700 },
-    "16": { variantes: ["16", "16 Plus", "16 Pro", "16 Pro Max"], base: 850 },
+  /* ===================================================================
+     COTIZADOR DE TRADE-IN — precios reales cargados por Joshua
+     Los valores marcados "estimado" no vinieron en la lista original: se
+     calcularon sumando/restando ₲300.000 desde la capacidad vecina más
+     cercana que sí tenía precio cargado. Revisalos si hace falta.
+     Modelos que no aparecen (ej. cualquier "Mini") no se reciben como
+     parte de pago, así que no figuran como opción en el selector.
+     =================================================================== */
+  const datosTradeIn = {
+    "11": {
+      "Normal":  { "64GB": 500000, "128GB": 600000, "256GB": 900000 },   // 256GB estimado (+300k desde 128GB)
+      "Pro":     { "64GB": 700000, "256GB": 800000, "512GB": 1100000 },  // 512GB estimado (+300k desde 256GB)
+      "Pro Max": { "64GB": 800000, "256GB": 900000, "512GB": 1200000 }   // 512GB estimado (+300k desde 256GB)
+    },
+    "12": {
+      "Normal":  { "64GB": 700000, "128GB": 800000, "256GB": 1100000 },   // 256GB estimado
+      "Pro":     { "128GB": 1100000, "256GB": 1300000, "512GB": 1600000 }, // 512GB estimado
+      "Pro Max": { "128GB": 1400000, "256GB": 1500000, "512GB": 1800000 }  // 512GB estimado
+    },
+    "13": {
+      "Normal":  { "128GB": 1200000, "256GB": 1400000, "512GB": 1700000 }, // 512GB estimado
+      "Pro":     { "128GB": 1700000, "256GB": 2100000, "512GB": 2400000 }, // 512GB estimado
+      "Pro Max": { "128GB": 2100000, "256GB": 2400000, "512GB": 2700000 }  // 512GB estimado
+    },
+    "14": {
+      "Normal":  { "128GB": 1300000, "256GB": 1500000, "512GB": 1800000 }, // 512GB estimado
+      "Plus":    { "128GB": 1600000, "256GB": 2000000, "512GB": 2300000 }, // 512GB estimado
+      "Pro":     { "128GB": 2200000, "256GB": 2500000, "512GB": 2800000 }, // 512GB estimado
+      "Pro Max": { "128GB": 2500000, "256GB": 2800000, "512GB": 3100000 }  // 512GB estimado
+    },
+    "15": {
+      "Normal":  { "128GB": 2000000, "256GB": 2300000, "512GB": 2600000 }, // 512GB estimado
+      "Plus":    { "128GB": 2400000, "256GB": 2700000, "512GB": 3000000 }, // 512GB estimado
+      "Pro":     { "128GB": 3000000, "256GB": 3300000, "512GB": 3400000 }, // completo, tal cual tu lista
+      "Pro Max": { "256GB": 3600000, "512GB": 4300000 }                    // completo (este modelo real no tiene 128GB)
+    },
+    "16": {
+      "Normal":  { "128GB": 3000000, "256GB": 3500000, "512GB": 3800000 }, // 512GB estimado
+      "Plus":    { "128GB": 3400000, "256GB": 3600000, "512GB": 3900000 }, // 512GB estimado
+      "Pro":     { "128GB": 4000000, "256GB": 4500000, "512GB": 4800000 }, // 512GB estimado
+      "Pro Max": { "256GB": 4800000, "512GB": 5300000 }                    // completo (este modelo real no tiene 128GB)
+    },
+    "17": {
+      "Normal":  { "256GB": 3800000, "512GB": 4100000 }, // completo (este modelo real no tiene 128GB)
+      "Pro":     { "256GB": 5600000, "512GB": 5900000 }, // completo
+      "Pro Max": { "256GB": 6000000, "512GB": 6500000 }  // completo
+    },
+    "17air": {
+      "Normal": { "256GB": 3800000, "512GB": 4000000 } // completo — iPhone Air
+    }
   };
-  const capMultiplicador = { "128GB": 1, "256GB": 1.12, "512GB": 1.25 };
+
+  /* Nombres reales para mostrar en pantalla */
+  const nombreFamilia = {
+    "11": "iPhone 11", "12": "iPhone 12", "13": "iPhone 13", "14": "iPhone 14",
+    "15": "iPhone 15", "16": "iPhone 16", "17": "iPhone 17", "17air": "iPhone Air"
+  };
 
   let familiaSel = null, varianteSel = null, capSel = null;
 
   const familiasEl = document.getElementById('familias');
-  Object.keys(datos).forEach(fam => {
+  Object.keys(datosTradeIn).forEach(fam => {
     const btn = document.createElement('button');
     btn.className = 'familia-btn';
-    btn.textContent = 'iPhone ' + fam;
+    btn.textContent = nombreFamilia[fam];
     btn.onclick = () => seleccionarFamilia(fam, btn);
     familiasEl.appendChild(btn);
   });
@@ -1544,11 +1592,11 @@
 
     const variantesEl = document.getElementById('variantes');
     variantesEl.innerHTML = '';
-    datos[fam].variantes.forEach(v => {
+    Object.keys(datosTradeIn[fam]).forEach(variante => {
       const b = document.createElement('button');
       b.className = 'variante-btn';
-      b.textContent = v;
-      b.onclick = () => seleccionarVariante(v, b);
+      b.textContent = variante;
+      b.onclick = () => seleccionarVariante(variante, b);
       variantesEl.appendChild(b);
     });
     document.getElementById('variantesWrap').classList.add('abierto');
@@ -1556,26 +1604,26 @@
     actualizarValor();
   }
 
-  function seleccionarVariante(v, btnEl){
-    varianteSel = v; capSel = null;
+  function seleccionarVariante(variante, btnEl){
+    varianteSel = variante; capSel = null;
     document.querySelectorAll('.variante-btn').forEach(b => b.classList.remove('activa'));
     btnEl.classList.add('activa');
 
     const capEl = document.getElementById('capacidades');
     capEl.innerHTML = '';
-    Object.keys(capMultiplicador).forEach(c => {
+    Object.keys(datosTradeIn[familiaSel][variante]).forEach(cap => {
       const b = document.createElement('button');
       b.className = 'cap-btn';
-      b.textContent = c;
-      b.onclick = () => seleccionarCap(c, b);
+      b.textContent = cap;
+      b.onclick = () => seleccionarCap(cap, b);
       capEl.appendChild(b);
     });
     document.getElementById('capacidadWrap').classList.add('abierto');
     actualizarValor();
   }
 
-  function seleccionarCap(c, btnEl){
-    capSel = c;
+  function seleccionarCap(cap, btnEl){
+    capSel = cap;
     document.querySelectorAll('.cap-btn').forEach(b => b.classList.remove('activa'));
     btnEl.classList.add('activa');
     actualizarValor();
@@ -1587,22 +1635,22 @@
     const cta = document.getElementById('ctaCot');
 
     if (!familiaSel){ return; }
-    let nombre = 'iPhone ' + familiaSel;
-    if (varianteSel) nombre = 'iPhone ' + varianteSel;
+    let nombre = nombreFamilia[familiaSel];
+    /* "Normal" no se muestra: el nombre real del modelo ya es suficiente (ej. "iPhone 14", no "iPhone 14 Normal") */
+    if (varianteSel && varianteSel !== 'Normal') nombre += ' ' + varianteSel;
     if (capSel) nombre += ' ' + capSel;
     modeloEl.textContent = nombre;
 
     if (varianteSel && capSel){
-      const base = datos[familiaSel].base;
-      const mult = capMultiplicador[capSel];
-      const valor = Math.round(base * mult / 10) * 10;
-      montoEl.textContent = 'US$ ' + valor;
+      const valor = datosTradeIn[familiaSel][varianteSel][capSel];
+      const valorTexto = '₲' + valor.toLocaleString('es-PY');
+      montoEl.textContent = valorTexto;
       cta.classList.add('activo');
       cta.classList.remove('descargado');
       cta.textContent = 'Descargá tu cotización en PDF';
       cta.href = '#';
       cta.dataset.nombre = nombre;
-      cta.dataset.valor = 'US$ ' + valor;
+      cta.dataset.valor = valorTexto;
       cta.dataset.wahref = 'https://wa.me/595992401579?text=' + encodeURIComponent('Hola! Quiero hacer una consulta.');
     } else {
       montoEl.textContent = '—';
