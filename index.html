@@ -434,28 +434,60 @@
     font-size:13px;
   }
 
-  /* ===== 5. SECCIÓN DE FACILIDAD ===== */
+  /* ===== 5. SECCIÓN DE FACILIDAD (foto + Ken Burns) ===== */
   .seccion-facilidad{
-    background:var(--negro);
+    position:relative;
+    overflow:hidden;
+    min-height:560px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
     padding:32px 20px 28px;
     text-align:center;
+  }
+  .facilidad-bg{
+    position:absolute;
+    top:-10%; left:-10%;
+    width:120%; height:120%;
+    background-image:url('img/hero-asi-de-facil.jpg');
+    background-size:cover;
+    background-position:30% center;
+    animation:kenburns 18s ease-in-out infinite alternate;
+    z-index:0;
+  }
+  @keyframes kenburns{
+    0%{ transform:translate(0,0) scale(1); }
+    100%{ transform:translate(-4%,-2%) scale(1.08); }
+  }
+  .facilidad-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.22) 45%, rgba(0,0,0,0.7) 100%);
+    z-index:1;
+  }
+  .facilidad-contenido{
+    position:relative;
+    z-index:2;
+  }
+  @media (min-width:768px){
+    .seccion-facilidad{ min-height:640px; }
   }
 
   .facilidad-titular{
     font-family:'Newsreader', serif;
     font-optical-sizing:auto;
     font-weight:600;
-    font-size:2.25rem;
-    line-height:2.4rem;
+    font-size:2rem;
+    line-height:2.15rem;
     letter-spacing:-0.02em;
     color:var(--blanco);
-    margin:0 auto 10px;
+    margin:0 auto 8px;
     max-width:18ch;
   }
   @media (min-width:768px){
     .facilidad-titular{
-      font-size:3.5rem;
-      line-height:3.6rem;
+      font-size:3.25rem;
+      line-height:3.4rem;
       max-width:24ch;
     }
   }
@@ -463,80 +495,84 @@
   .facilidad-subtitulo{
     font-family:'Outfit', sans-serif;
     font-weight:600;
-    font-size:1.125rem;
-    line-height:1.4rem;
-    color:#D8D8DC;
+    font-size:1rem;
+    line-height:1.3rem;
+    color:rgba(255,255,255,0.9);
     max-width:34ch;
-    margin:0 auto 24px;
+    margin:0 auto 20px;
   }
   @media (min-width:768px){
     .facilidad-subtitulo{
-      font-size:1.4rem;
-      line-height:1.6rem;
+      font-size:1.25rem;
+      line-height:1.5rem;
       max-width:40ch;
     }
   }
 
   .card-pasos{
-    background:#2A2A2E;
-    border-radius:20px;
-    padding:8px;
     display:flex;
     flex-direction:column;
-    margin-bottom:20px;
+    gap:10px;
+    margin-bottom:14px;
   }
   .paso{
     display:flex;
-    align-items:flex-start;
+    align-items:center;
     gap:14px;
-    padding:16px 14px;
+    padding:12px 14px;
     text-align:left;
+    background:rgba(255,255,255,0.14);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border:0.5px solid rgba(255,255,255,0.25);
+    border-radius:14px;
   }
-  .paso-numero{
+  .paso-icono{
     flex-shrink:0;
-    width:36px;
-    height:36px;
-    background:#3A3A3F;
-    border-radius:8px;
+    width:40px;
+    height:40px;
+    background:rgba(255,255,255,0.95);
+    box-shadow:0 2px 8px rgba(0,0,0,0.25);
+    border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-family:'Figtree', sans-serif;
-    font-weight:800;
-    font-size:0.9375rem;
-    color:var(--rojo);
   }
+  .paso-icono i{ color:var(--negro); }
   .paso-contenido{
     display:flex;
     flex-direction:column;
-    gap:4px;
+    gap:2px;
   }
   .paso-titulo{
     font-family:'Figtree', sans-serif;
-    font-weight:800;
-    font-size:1.0625rem;
-    line-height:1.375rem;
+    font-weight:700;
+    font-size:0.9375rem;
+    line-height:1.2rem;
     color:var(--blanco);
   }
   .paso-desc{
     font-family:'Figtree', sans-serif;
-    font-weight:500;
-    font-size:0.9375rem;
-    line-height:1.3rem;
-    color:#C7C7CC;
+    font-weight:400;
+    font-size:0.8125rem;
+    line-height:1.15rem;
+    color:rgba(255,255,255,0.85);
+  }
+  .facilidad-disclaimer{
+    font-family:'Figtree', sans-serif;
+    font-weight:400;
+    font-size:0.6875rem;
+    color:rgba(255,255,255,0.55);
+    margin:0 0 14px;
   }
 
   @media (min-width:768px){
     .card-pasos{
       flex-direction:row;
-      padding:24px 8px;
+      gap:14px;
     }
     .paso{
       flex:1;
-      border-right:1px solid #3A3A3F;
-    }
-    .paso:last-child{
-      border-right:none;
     }
   }
 
@@ -1379,35 +1415,37 @@
 </div>
 <!-- 5. SECCIÓN DE FACILIDAD -->
 <div class="seccion-facilidad" id="facilidad">
-<h2 class="facilidad-titular scroll-reveal">
-  <i data-lucide="hand-coins" style="width:32px;height:32px;vertical-align:-6px;margin-right:8px;"></i>
-  Es muy fácil.
-</h2>
-<p class="facilidad-subtitulo">3 pasos, ¡listo!</p>
+<div class="facilidad-bg"></div>
+<div class="facilidad-overlay"></div>
+<div class="facilidad-contenido">
+<h2 class="facilidad-titular scroll-reveal">Así de fácil</h2>
+<p class="facilidad-subtitulo">Tu nuevo iPhone en 3 pasos</p>
 <div class="card-pasos scroll-reveal">
 <div class="paso">
-<div class="paso-numero">01</div>
+<div class="paso-icono"><i data-lucide="smartphone" style="width:20px;height:20px;"></i></div>
 <div class="paso-contenido">
-<div class="paso-titulo">Elegís el modelo</div>
-<div class="paso-desc">Elegís el iPhone que más te gusta, nuevo o seminuevo, según tu presupuesto.</div>
+<div class="paso-titulo">Fácil</div>
+<div class="paso-desc">Elegí tu iPhone y tu plan vía WhatsApp</div>
 </div>
 </div>
 <div class="paso">
-<div class="paso-numero">02</div>
+<div class="paso-icono"><i data-lucide="badge-check" style="width:20px;height:20px;"></i></div>
 <div class="paso-contenido">
-<div class="paso-titulo">Gestionás por WhatsApp</div>
-<div class="paso-desc">Hacemos la evaluación de forma digital, sin vueltas ni papeleo innecesario.</div>
+<div class="paso-titulo">Rápido</div>
+<div class="paso-desc">Te aprobamos el mismo día</div>
 </div>
 </div>
 <div class="paso">
-<div class="paso-numero">03</div>
+<div class="paso-icono"><i data-lucide="truck" style="width:20px;height:20px;"></i></div>
 <div class="paso-contenido">
-<div class="paso-titulo">Te lo llevamos, disfrutás</div>
-<div class="paso-desc">Recibís tu iPhone y lo disfrutás desde el primer día, mientras pagás tus cuotas.</div>
+<div class="paso-titulo">Seguro</div>
+<div class="paso-desc">Te lo llevamos hasta tu casa. ¡Disfrutás!</div>
 </div>
 </div>
 </div>
+<p class="facilidad-disclaimer">Aprobación sujeta a análisis</p>
 <a class="btn-cta" href="https://wa.me/595992401579?text=Hola!%20Quiero%20hacer%20una%20consulta."><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.41 1.31-1.94 1.35-.5.05-1.06.24-3.6-.75-3.04-1.19-5-4.25-5.15-4.45-.15-.2-1.23-1.64-1.23-3.13s.78-2.22 1.05-2.53c.27-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.69.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>Quiero más información</a>
+</div>
 </div>
 
 
