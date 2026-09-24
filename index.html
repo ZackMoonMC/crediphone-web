@@ -1242,6 +1242,88 @@
     color:#B5B5BA;
   }
 
+  /* ===== 6.5 SECCIÓN: LO QUE VES, TE LLEVÁS (catálogo con fotos reales) ===== */
+  .seccion-vesllevas{
+    background:var(--negro);
+    padding:32px 0 28px;
+  }
+  .vv-titulo{
+    font-family:'Newsreader', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    font-size:1.9rem;
+    line-height:2.05rem;
+    color:var(--blanco);
+    text-align:center;
+    margin:0 auto 20px;
+    padding:0 20px;
+  }
+  @media (min-width:768px){
+    .vv-titulo{ font-size:3rem; line-height:3.15rem; }
+  }
+  .vv-scroll{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:0 20px 6px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .vv-scroll::-webkit-scrollbar{ display:none; }
+  .vv-card{
+    position:relative;
+    flex:0 0 78%;
+    max-width:340px;
+    aspect-ratio:3/4;
+    border-radius:14px;
+    overflow:hidden;
+    scroll-snap-align:start;
+    background:#1A1A1C;
+  }
+  .vv-card img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .vv-overlay{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    z-index:2;
+    padding:32px 14px 14px;
+    background:linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.55) 55%, transparent);
+  }
+  .vv-modelo{
+    color:var(--blanco);
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:1.0625rem;
+    margin:0 0 2px;
+  }
+  .vv-cap{
+    color:rgba(255,255,255,0.85);
+    font-family:'Figtree', sans-serif;
+    font-size:0.8125rem;
+    margin:0 0 3px;
+  }
+  .vv-cuota{
+    color:var(--blanco);
+    font-family:'Figtree', sans-serif;
+    font-weight:700;
+    font-size:0.9375rem;
+    margin:0;
+  }
+  .vv-nota{
+    text-align:center;
+    font-family:'Figtree', sans-serif;
+    font-size:0.8125rem;
+    color:#8A8A90;
+    margin:16px 0 0;
+  }
+  .vv-nota i{ width:15px;height:15px;vertical-align:-3px; }
+
   /* ===== SCROLL REVEAL (reusable en toda la pagina) ===== */
   .scroll-reveal{
     opacity:0;
@@ -1582,6 +1664,42 @@
         <div class="stat-label">financiación propia</div>
       </div>
     </div>
+  </section>
+
+
+  <!-- ===== 6.5 SECCIÓN: LO QUE VES, TE LLEVÁS ===== -->
+  <section class="seccion-vesllevas" id="catalogo">
+    <h2 class="vv-titulo scroll-reveal">
+      <i data-lucide="camera" style="width:26px;height:26px;vertical-align:-4px;margin-right:4px;"></i>
+      Lo que ves,<br>te llevás
+    </h2>
+    <div class="vv-scroll scroll-reveal">
+      <div class="vv-card">
+        <img src="img/iphone-13.jpg" alt="iPhone 13">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 13</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲412.500</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <img src="img/iphone-13-pro.jpg" alt="iPhone 13 Pro">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 13 Pro</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲548.900</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <img src="img/iphone-13-pro-max.jpg" alt="iPhone 13 Pro Max">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 13 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲612.300</p>
+        </div>
+      </div>
+    </div>
+    <p class="vv-nota">Deslizá para ver más <i data-lucide="arrow-right"></i></p>
   </section>
 
 
