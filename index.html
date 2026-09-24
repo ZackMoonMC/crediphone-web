@@ -572,10 +572,11 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
+    gap:10px;
     width:100%;
-    background:rgba(255,255,255,0.95);
-    color:var(--negro);
+    background:transparent;
+    border:1.5px solid var(--blanco);
+    color:var(--blanco);
     font-family:'Figtree', sans-serif;
     font-weight:700;
     font-size:0.9375rem;
@@ -583,8 +584,8 @@
     border-radius:14px;
     text-decoration:none;
     text-align:center;
-    margin-bottom:10px;
   }
+  .btn-ver-modelos i{ flex-shrink:0; }
 
   @media (min-width:768px){
     .card-pasos{
@@ -1442,7 +1443,7 @@
 <p class="facilidad-subtitulo">Tu nuevo iPhone en 3 pasos</p>
 <div class="card-pasos scroll-reveal">
 <div class="paso">
-<div class="paso-icono"><i data-lucide="pointer-click" style="width:20px;height:20px;"></i></div>
+<div class="paso-icono"><img src="img/icon-mano-click.png" alt="" style="width:20px;height:20px;"></div>
 <div class="paso-contenido">
 <div class="paso-titulo">Fácil</div>
 <div class="paso-desc">Elegí tu iPhone y tu plan vía WhatsApp</div>
@@ -1464,8 +1465,7 @@
 </div>
 </div>
 <p class="facilidad-disclaimer">Aprobación sujeta a análisis</p>
-<a class="btn-ver-modelos" href="#selectorModelo" onclick="resaltarSelector(event)"><i data-lucide="arrow-up" style="width:18px;height:18px;"></i>Ver modelos y elegir</a>
-<a class="btn-cta" href="https://wa.me/595992401579?text=Hola!%20Quiero%20hacer%20una%20consulta."><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.41 1.31-1.94 1.35-.5.05-1.06.24-3.6-.75-3.04-1.19-5-4.25-5.15-4.45-.15-.2-1.23-1.64-1.23-3.13s.78-2.22 1.05-2.53c.27-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.69.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>Quiero más información</a>
+<a class="btn-ver-modelos" href="#selectorModelo" onclick="resaltarSelector(event)"><i data-lucide="arrow-up" style="width:18px;height:18px;"></i>Ver modelos y cuotas<i data-lucide="arrow-up" style="width:18px;height:18px;"></i></a>
 </div>
 </div>
 
