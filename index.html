@@ -879,15 +879,18 @@
     text-align:center;
   }
   .nota-cot strong{
-    color:var(--rojo);
+    color:var(--gris-texto);
     font-weight:700;
   }
 
   .cta-cot{
-    display:block;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
     text-align:center;
     margin-top:20px;
-    background:var(--gris-texto);
+    background:var(--rojo);
     color:var(--blanco);
     font-family:'Outfit', sans-serif;
     font-weight:700;
@@ -911,7 +914,7 @@
   /* ===== SECCIÓN: SMART DEAL ===== */
   /* ===== SECCIÓN: FORMULARIO ===== */
   .seccion-form{
-    background:var(--blanco);
+    background:rgba(17,17,17,0.3);
     max-width:1100px;
     margin:0 auto;
     padding:32px 20px 28px;
@@ -1831,7 +1834,6 @@
           <p class="vv-cuota">Cuota desde ₲650.000</p>
         </div>
       </div>
-      <!-- FOTO PENDIENTE: llega manana -->
       <div class="vv-card">
         <span class="vv-pill-stock">En stock</span>
         <img src="img/iphone-15-nuevo.jpg" alt="iPhone 15">
@@ -1972,8 +1974,8 @@
 <div class="seccion-label">Capacidad</div>
 <div class="capacidades" id="capacidades"></div>
 </div>
-<a class="cta-cot" href="#" id="ctaCot">Descargá tu cotización en PDF</a>
-<div class="nota-cot"><strong>TIP:</strong> Elegís modelo, cotizás, descargás.</div>
+<a class="cta-cot" href="#" id="ctaCot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 20h16"/></svg><span id="ctaCotTexto">Descargar en PDF</span></a>
+<div class="nota-cot"><strong>FÁCIL:</strong> Elegís modelo, cotizás, descargás.</div>
 </div>
   </section>
 
@@ -2183,7 +2185,7 @@
       montoEl.textContent = valorTexto;
       cta.classList.add('activo');
       cta.classList.remove('descargado');
-      cta.textContent = 'Descargá tu cotización en PDF';
+      document.getElementById('ctaCotTexto').textContent = 'Descargar en PDF';
       cta.href = '#';
       cta.dataset.nombre = nombre;
       cta.dataset.valor = valorTexto;
@@ -2275,7 +2277,7 @@
       e.preventDefault();
       generarPdfCotizacion(this.dataset.nombre, this.dataset.valor);
       this.classList.add('descargado');
-      this.textContent = 'Escribinos por WhatsApp →';
+      this.querySelector('#ctaCotTexto').textContent = 'Escribinos por WhatsApp →';
       this.href = this.dataset.wahref;
     }
   });
