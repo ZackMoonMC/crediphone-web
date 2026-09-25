@@ -1029,6 +1029,86 @@
     border-radius:999px;
   }
 
+  /* ===== SECCIÓN: PREGUNTAS FRECUENTES (FAQ) ===== */
+  .seccion-faq{
+    background:var(--blanco);
+    padding:32px 20px 36px;
+    text-align:center;
+  }
+  .faq-titulo{
+    font-family:'Newsreader', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    font-size:2.25rem;
+    line-height:2.4rem;
+    color:var(--negro);
+    margin:0 auto 6px;
+  }
+  .faq-bajada{
+    font-family:'Outfit', sans-serif;
+    font-weight:600;
+    font-size:1.125rem;
+    line-height:1.4rem;
+    color:var(--gris-texto);
+    margin:0 auto 24px;
+  }
+  @media (min-width:768px){
+    .faq-titulo{ font-size:3.5rem; line-height:3.6rem; }
+    .faq-bajada{ font-size:1.4rem; line-height:1.6rem; }
+  }
+  .faq-lista{
+    max-width:640px;
+    margin:0 auto;
+    text-align:left;
+  }
+  .faq-item{
+    border-bottom:1px solid var(--gris-borde);
+  }
+  .faq-pregunta{
+    width:100%;
+    background:none;
+    border:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:16px 0;
+    font-family:'Outfit', sans-serif;
+    font-weight:600;
+    font-size:0.9375rem;
+    color:var(--negro);
+    text-align:left;
+    cursor:pointer;
+  }
+  .faq-pregunta i{
+    flex-shrink:0;
+    width:18px;
+    height:18px;
+    color:#999;
+    transition:transform .25s ease, color .25s ease;
+  }
+  .faq-item.abierto .faq-pregunta i{
+    color:var(--rojo);
+    transform:rotate(180deg);
+  }
+  .faq-respuesta-wrap{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .faq-item.abierto .faq-respuesta-wrap{
+    max-height:240px;
+  }
+  .faq-respuesta{
+    font-family:'Figtree', sans-serif;
+    font-weight:400;
+    font-size:0.875rem;
+    line-height:1.4rem;
+    color:var(--gris-texto);
+    padding:0 0 16px;
+  }
+
     /* ===== 10. WHATSAPP WIDGET ===== */
 .whatsapp-widget{
   position:fixed;
@@ -2001,6 +2081,95 @@
     </div>
   </section>
 
+  <!-- ===== SECCIÓN: PREGUNTAS FRECUENTES (FAQ) ===== -->
+  <section class="seccion-faq" id="faq">
+    <h2 class="faq-titulo scroll-reveal">Preguntas Frecuentes</h2>
+    <p class="faq-bajada">Las preguntas del millón</p>
+    <div class="faq-lista scroll-reveal">
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Cuentan con local físico?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">Sí, contamos con local físico. Nuestro local principal es GameCell.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Puedo entregar una parte en efectivo y financiar el resto?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">Sí, entregás el monto que puedas y financiamos la diferencia en cuotas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Puedo entregar mi iPhone actual como parte de pago?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">Sí, lo cotizamos y descontamos ese valor de tu nuevo iPhone.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Necesito tarjeta de crédito?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">No, cero tarjeta de crédito.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Cuánto tardan en aprobarme?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">Te aprobamos el mismo día.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Los equipos son reacondicionados?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">No, son recién importados de EE.UU., certificados, con todas sus piezas originales de fábrica. No financiamos equipos con piezas cambiadas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Qué porcentaje de batería traen?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">Al ser equipos seminuevos con batería original de fábrica, varía según la unidad — la mayoría está en 89% o más, y en algunos modelos contamos con batería al 100%.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Qué garantía tienen?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">1 año de garantía, la misma que tendrías con un equipo nuevo en caja.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta" onclick="toggleFaq(this)">
+          <span>¿Qué requisitos necesito?</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="faq-respuesta-wrap">
+          <p class="faq-respuesta">Tener 19 años o más, antigüedad laboral mínima de 5 meses, e Infoconf limpio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FOOTER ===== -->
   <footer id="footer-contacto">
     <div class="foot-grid">
@@ -2426,6 +2595,14 @@
       const form = document.getElementById('formulario');
       if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 200);
+  }
+
+  /* ===== FAQ: acordeón ===== */
+  function toggleFaq(btn){
+    const item = btn.closest('.faq-item');
+    const yaAbierto = item.classList.contains('abierto');
+    document.querySelectorAll('.faq-item.abierto').forEach(i => i.classList.remove('abierto'));
+    if (!yaAbierto) item.classList.add('abierto');
   }
 
   /* ===== SCROLL REVEAL ===== */
