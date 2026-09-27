@@ -7,7 +7,8 @@
 <title>Crediphone — Primera pantalla integrada</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,600;0,6..72,700;1,6..72,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,600;0,6..72,700;1,6..72,600&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,600;0,6..72,700;1,6..72,600&display=swap" rel="stylesheet"/></noscript>
 <style>
   :root{
     --rojo:#D91E2A;
@@ -616,6 +617,8 @@
 
   /* ===== SECCIÓN REGALOS ===== */
   .seccion-regalos{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 600px;
     background:#3A3A3F;
     padding:28px 20px 20px;
     text-align:center;
@@ -671,7 +674,7 @@
     text-align:center;
   }
   .regalos-nota strong{
-    color:var(--rojo);
+    color:#FF8A8A;
     font-weight:700;
   }
   @media (min-width:768px){
@@ -681,7 +684,7 @@
   }
 
   /* ===== INTEGRACIÓN TRADE-IN ===== */
-  .seccion-tradein{background:var(--blanco);padding:0;margin:0;}
+  .seccion-tradein{content-visibility:auto;contain-intrinsic-size:auto 650px;background:var(--blanco);padding:0;margin:0;}
   .seccion-tradein .cot-wrap{max-width:480px;margin:0 auto;}
   .seccion-tradein .cot-wrap{border-top:1px solid var(--gris-borde);}
 
@@ -914,6 +917,8 @@
   /* ===== SECCIÓN: SMART DEAL ===== */
   /* ===== SECCIÓN: FORMULARIO ===== */
   .seccion-form{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 550px;
     background:rgba(17,17,17,0.3);
     max-width:1100px;
     margin:0 auto;
@@ -1031,6 +1036,8 @@
 
   /* ===== SECCIÓN: PREGUNTAS FRECUENTES (FAQ) ===== */
   .seccion-faq{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 700px;
     background:var(--blanco);
     padding:32px 20px 36px;
     text-align:center;
@@ -1138,7 +1145,7 @@
   .foot-grid{ display:grid; grid-template-columns:1fr; gap:32px; }
   .foot-brand img{ height:56px; width:auto; margin-bottom:14px; }
   .foot-brand p{ color:#B5B5BA; font-size:0.875rem; line-height:1.5; font-weight:500; max-width:34ch; }
-  .foot-col h4{ font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#8A8A90; margin-bottom:12px; }
+  .foot-col h3{ font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#8A8A90; margin-bottom:12px; }
   .foot-col a{ display:block; color:#B5B5BA; text-decoration:none; font-size:0.875rem; font-weight:600; padding:5px 0; }
   .foot-col a:hover{ color:var(--blanco); }
   .foot-contact-item{ display:flex !important; align-items:flex-start; gap:8px; }
@@ -1155,12 +1162,16 @@
   .foot-bottom{
     margin-top:36px; padding-top:20px;
     border-top:1px solid #2A2A2C;
-    text-align:center; color:#6B6B70;
+    text-align:center; color:#8A8A90;
     font-size:0.78rem; font-weight:500;
   }
   @media(min-width:800px){ .foot-grid{ grid-template-columns:1.4fr 1fr 1fr; } }
 
   /* ===== SECCIÓN: DESCUBRÍ ===== */
+  #descubri{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 700px;
+  }
   .descubri-intro{
     padding:28px 20px 16px;
     text-align:center;
@@ -1273,6 +1284,8 @@
 
   /* ===== SECCIÓN: STATS (prueba social) ===== */
   .seccion-stats{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 300px;
     background:var(--negro);
     padding:32px 20px 28px;
     text-align:center;
@@ -1328,6 +1341,8 @@
 
   /* ===== 6.5 SECCIÓN: LO QUE VES, TE LLEVÁS (catálogo con fotos reales) ===== */
   .seccion-vesllevas{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 700px;
     background:var(--negro);
     padding:32px 0 28px;
   }
@@ -1472,9 +1487,9 @@
     cursor:pointer;
   }
 </style>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 </head>
 <body>
   <!--
@@ -1532,6 +1547,8 @@
     <a href="#formulario" class="menu-item" onclick="cerrarMenu()">Solicitar iPhone</a>
     <a href="#footer-contacto" class="menu-item" onclick="cerrarMenu()">Contactos</a>
   </div>
+
+<main>
 <!-- 3. SELECTOR DE CUOTAS -->
 <div class="fila-acciones">
 <div class="btn-cuotas" onclick="resaltarSelector(event)" style="cursor:pointer;">
@@ -1620,7 +1637,7 @@
 <div class="hero-carrusel" id="heroCarrusel">
 <div class="hero-track" id="heroTrack">
 <a class="hero-slide" href="#selectorModelo" onclick="resaltarSelector(event)">
-<img alt="Cuotas desde ₲149.000 - iPhone a cuotitas" src="img/hero-financiacion-sin-tarjeta.webp"/>
+<img alt="Cuotas desde ₲149.000 - iPhone a cuotitas" src="img/hero-financiacion-sin-tarjeta.webp" fetchpriority="high"/>
 </a>
 <a class="hero-slide" href="#selectorModelo" onclick="resaltarSelector(event)">
 <img alt="Modelos disponibles" src="img/hero-modelos-nuevos-seminuevos.webp"/>
@@ -2183,6 +2200,7 @@
       </div>
     </div>
   </section>
+</main>
 
   <!-- ===== FOOTER ===== -->
   <footer id="footer-contacto">
@@ -2203,14 +2221,14 @@
         </div>
       </div>
       <div class="foot-col">
-        <h4>Enlaces</h4>
+        <h3>Enlaces</h3>
         <a href="#facilidad">Cómo funciona</a>
         <a href="#regalos">Regalos</a>
         <a href="#trade-in">Trade-in</a>
         <a href="#formulario">Solicitá tu iPhone</a>
       </div>
       <div class="foot-col">
-        <h4>Contacto</h4>
+        <h3>Contacto</h3>
         <a href="#" class="foot-contact-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
           <span>Mcal. López esq. Cruz del Defensor. Asunción, Paraguay</span>
@@ -2631,7 +2649,7 @@
   document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
 </script>
 <script>
-  (function(){
+  document.addEventListener('DOMContentLoaded', function(){
     emailjs.init("7K8XPiAfK7njJ0gnc");
 
     const form = document.getElementById('formSolicitud');
@@ -2660,7 +2678,7 @@
           setTimeout(() => { btnTexto.textContent = textoOriginal; }, 3000);
         });
     });
-  })();
+  });
 </script>
 <script>
   (function(){
@@ -2701,7 +2719,11 @@
     iniciarAuto();
   })();
 </script>
-<script>lucide.createIcons();</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    lucide.createIcons();
+  });
+</script>
 <a href="https://wa.me/595992401579?text=Hola!%20Quiero%20hacer%20una%20consulta." class="whatsapp-widget" target="_blank" aria-label="WhatsApp">
 <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.41 1.31-1.94 1.35-.5.05-1.06.24-3.6-.75-3.04-1.19-5-4.25-5.15-4.45-.15-.2-1.23-1.64-1.23-3.13s.78-2.22 1.05-2.53c.27-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.69.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>
 </a>
