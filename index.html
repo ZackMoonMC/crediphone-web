@@ -449,7 +449,7 @@
     position:absolute;
     top:-10%; left:-10%;
     width:120%; height:120%;
-    background-image:url('img/hero-asi-de-facil.jpg');
+    background-image:url('img/hero-asi-de-facil.webp');
     background-size:cover;
     background-position:30% center;
     animation:kenburns 12s ease-in-out infinite alternate;
@@ -480,8 +480,8 @@
     font-family:'Newsreader', serif;
     font-optical-sizing:auto;
     font-weight:600;
-    font-size:2.25rem;
-    line-height:2.4rem;
+    font-size:2.0625rem;
+    line-height:2.2rem;
     letter-spacing:-0.02em;
     color:var(--blanco);
     margin:0 auto 8px;
@@ -489,8 +489,8 @@
   }
   @media (min-width:768px){
     .facilidad-titular{
-      font-size:3.5rem;
-      line-height:3.6rem;
+      font-size:3.3125rem;
+      line-height:3.4rem;
       max-width:24ch;
     }
   }
@@ -1340,11 +1340,23 @@
     line-height:2.4rem;
     color:var(--blanco);
     text-align:center;
-    margin:0 auto 20px;
+    margin:0 auto 6px;
     padding:0 20px;
   }
   @media (min-width:768px){
     .vv-titulo{ font-size:3.5rem; line-height:3.6rem; }
+  }
+  .vv-bajada{
+    font-family:'Outfit', sans-serif;
+    font-weight:600;
+    font-size:1.125rem;
+    color:#D8D8DC;
+    text-align:center;
+    margin:0 auto 20px;
+    padding:0 20px;
+  }
+  @media (min-width:768px){
+    .vv-bajada{ font-size:1.4rem; }
   }
   .vv-scroll{
     display:flex;
@@ -1499,7 +1511,7 @@
 <path d="M3 18H21" stroke="#111111" stroke-linecap="round" stroke-width="2"></path>
 </svg>
 </button>
-<img alt="Crediphone" src="img/crediphone-logo.png"/>
+<img alt="Crediphone" src="img/crediphone-logo.webp"/>
 <a aria-label="WhatsApp" class="header-btn" href="https://wa.me/595992401579?text=Hola!%20Quiero%20hacer%20una%20consulta.">
 <svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 <path d="M6 8V6C6 3.8 7.8 2 10 2H14C16.2 2 18 3.8 18 6V8" stroke="#111111" stroke-linecap="round" stroke-width="1.8"></path>
@@ -1608,16 +1620,16 @@
 <div class="hero-carrusel" id="heroCarrusel">
 <div class="hero-track" id="heroTrack">
 <a class="hero-slide" href="#selectorModelo" onclick="resaltarSelector(event)">
-<img alt="Cuotas desde ₲149.000 - iPhone a cuotitas" src="img/hero-slide-1.png"/>
+<img alt="Cuotas desde ₲149.000 - iPhone a cuotitas" src="img/hero-financiacion-sin-tarjeta.webp"/>
 </a>
 <a class="hero-slide" href="#selectorModelo" onclick="resaltarSelector(event)">
-<img alt="Modelos disponibles" src="img/hero-slide-2.png"/>
+<img alt="Modelos disponibles" src="img/hero-modelos-nuevos-seminuevos.webp"/>
 </a>
 <a class="hero-slide" href="#regalos">
-<img alt="Solicita tu iPhone" src="img/hero-slide-3.png"/>
+<img alt="Solicita tu iPhone" src="img/hero-plan-canje-parte-pago.webp"/>
 </a>
 <a class="hero-slide" href="#trade-in">
-<img alt="Trade-in: tu iPhone actual vale mas" src="img/hero-slide-4.png"/>
+<img alt="Trade-in: tu iPhone actual vale mas" src="img/hero-envios-a-domicilio.webp"/>
 </a>
 </div>
 </div>
@@ -1632,11 +1644,11 @@
 <div class="facilidad-bg"></div>
 <div class="facilidad-overlay"></div>
 <div class="facilidad-contenido">
-<h2 class="facilidad-titular scroll-reveal"><i data-lucide="hand-coins" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i>Así de fácil</h2>
-<p class="facilidad-subtitulo">Tu nuevo iPhone en 3 pasos</p>
+<h2 class="facilidad-titular scroll-reveal"><i data-lucide="hand-coins" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i>Cómo comprar un iPhone a cuotas</h2>
+<p class="facilidad-subtitulo">3 pasos, así de fácil</p>
 <div class="card-pasos scroll-reveal">
 <div class="paso">
-<div class="paso-icono"><img src="img/icon-mano-click.png" alt="" style="width:20px;height:20px;"></div>
+<div class="paso-icono"><img src="img/icon-mano-click.webp" alt="" style="width:20px;height:20px;"></div>
 <div class="paso-contenido">
 <div class="paso-titulo">Fácil</div>
 <div class="paso-desc">Elegí tu iPhone y tu plan vía WhatsApp</div>
@@ -1663,29 +1675,286 @@
 </div>
 
 
+
+  <!-- ===== 6.5 SECCIÓN: LO QUE VES, TE LLEVÁS ===== -->
+  <section class="seccion-vesllevas" id="catalogo">
+    <h2 class="vv-titulo scroll-reveal">
+      <i data-lucide="camera" style="width:26px;height:26px;vertical-align:-4px;margin-right:4px;"></i>
+      Modelos de iPhone disponibles
+    </h2>
+    <p class="vv-bajada">Lo que ves, te llevás</p>
+    <div class="vv-scroll scroll-reveal" id="vvScroll">
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-11.webp" alt="iPhone 11 Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 11</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲180.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-11-pro.webp" alt="iPhone 11 Pro Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 11 Pro</p>
+          <p class="vv-cap">Seminuevo · 256GB</p>
+          <p class="vv-cuota">Cuota desde ₲230.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-11-pro-max.webp" alt="iPhone 11 Pro Max Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 11 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 256GB</p>
+          <p class="vv-cuota">Cuota desde ₲260.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-12.webp" alt="iPhone 12 Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 12</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲250.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-12-pro.webp" alt="iPhone 12 Pro Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 12 Pro</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲300.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-12-pro-max.webp" alt="iPhone 12 Pro Max Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 12 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲340.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-13.webp" alt="iPhone 13 Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 13</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲412.500</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-13-pro.webp" alt="iPhone 13 Pro Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 13 Pro</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲548.900</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-13-pro-max.webp" alt="iPhone 13 Pro Max Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 13 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲612.300</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-14.webp" alt="iPhone 14 Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 14</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲430.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-14-pro.webp" alt="iPhone 14 Pro Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 14 Pro</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲560.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-14-pro-max.webp" alt="iPhone 14 Pro Max Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 14 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲630.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-15.webp" alt="iPhone 15 Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 15</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲450.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-15-pro.webp" alt="iPhone 15 Pro Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 15 Pro</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲580.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-15-pro-max.webp" alt="iPhone 15 Pro Max Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 15 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲650.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-15-nuevo.webp" alt="iPhone 15 Nuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 15</p>
+          <p class="vv-cap">Nuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲100.500</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-16.webp" alt="iPhone 16 Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 16</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲470.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-16-pro.webp" alt="iPhone 16 Pro Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 16 Pro</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲600.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-16-pro-max.webp" alt="iPhone 16 Pro Max Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 16 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲670.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-16-nuevo.webp" alt="iPhone 16 Nuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 16</p>
+          <p class="vv-cap">Nuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲490.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-17.webp" alt="iPhone 17 Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 17</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲100.500</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-17-pro.webp" alt="iPhone 17 Pro Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 17 Pro</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲100.500</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-17-pro-max.webp" alt="iPhone 17 Pro Max Seminuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 17 Pro Max</p>
+          <p class="vv-cap">Seminuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲100.500</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-17-nuevo.webp" alt="iPhone 17 Nuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 17</p>
+          <p class="vv-cap">Nuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲550.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-17-pro-nuevo.webp" alt="iPhone 17 Pro Nuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 17 Pro</p>
+          <p class="vv-cap">Nuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲690.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-17-pro-max-nuevo.webp" alt="iPhone 17 Pro Max Nuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 17 Pro Max</p>
+          <p class="vv-cap">Nuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲740.000</p>
+        </div>
+      </div>
+      <div class="vv-card">
+        <span class="vv-pill-stock">En stock</span>
+        <img src="img/iphone-18-pro-max-nuevo.webp" alt="iPhone 18 Pro Max Nuevo en Crediphone Paraguay">
+        <div class="vv-overlay">
+          <p class="vv-modelo">iPhone 18 Pro Max</p>
+          <p class="vv-cap">Nuevo · 128GB</p>
+          <p class="vv-cuota">Cuota desde ₲800.000</p>
+        </div>
+      </div>
+    </div>
+    <p class="vv-nota">Desliza para ver más modelos <i data-lucide="arrow-right" class="vv-flecha"></i></p>
+  </section>
+
+
   <!-- ===== 6. SECCIÓN: TU IPHONE A CUOTAS NO VIENE SOLO ===== -->
   <section class="seccion-regalos" id="regalos">
     <h2 class="regalos-titulo scroll-reveal"><i data-lucide="gift" style="width:28px;height:28px;vertical-align:-5px;margin-right:6px;"></i> Te damos más</h2>
     <div class="regalos-bajada">¡Un regalo a elección!</div>
     <div class="regalos-grid scroll-reveal">
       <div class="regalo-card" onclick="abrirRegalo('smartwatch')" style="cursor:pointer;">
-        <img class="regalo-foto" src="img/regalo-smartwatch.png" alt="Smartwatch" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-smartwatch.png</small></div>
+        <img class="regalo-foto" src="img/regalo-smartwatch.webp" alt="Smartwatch" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-smartwatch.webp</small></div>
         <div class="regalo-nombre">Smartwatch</div>
       </div>
       <div class="regalo-card" onclick="abrirRegalo('airpods')" style="cursor:pointer;">
-        <img class="regalo-foto" src="img/regalo-auriculares.png" alt="AirPods" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-auriculares.png</small></div>
+        <img class="regalo-foto" src="img/regalo-auriculares.webp" alt="AirPods" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-auriculares.webp</small></div>
         <div class="regalo-nombre">AirPods</div>
       </div>
       <div class="regalo-card" onclick="abrirRegalo('vaso')" style="cursor:pointer;">
-        <img class="regalo-foto" src="img/regalo-vaso-termico.png" alt="Vaso térmico" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-vaso-termico.png</small></div>
+        <img class="regalo-foto" src="img/regalo-vaso-termico.webp" alt="Vaso térmico" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-vaso-termico.webp</small></div>
         <div class="regalo-nombre">Vaso térmico</div>
       </div>
       <div class="regalo-card" onclick="abrirRegalo('bolso')" style="cursor:pointer;">
-        <img class="regalo-foto" src="img/regalo-bolso-string.png" alt="Bolso String" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
-        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-bolso-string.png</small></div>
+        <img class="regalo-foto" src="img/regalo-bolso-string.webp" alt="Bolso String" onerror="this.style.display='none';" onload="this.nextElementSibling.style.display='none';">
+        <div class="regalo-placeholder">PLACEHOLDER FOTO<br><small>img/regalo-bolso-string.webp</small></div>
         <div class="regalo-nombre">Bolso String</div>
       </div>
     </div>
@@ -1708,31 +1977,31 @@
     <div class="descubri-carrusel" id="descubriCarrusel">
       <div class="descubri-track" id="descubriTrack">
         <div class="descubri-slide">
-          <img src="img/descubri-1-compartir.png" alt="La Amiguera">
+          <img src="img/descubri-1-compartir.webp" alt="La Amiguera">
           <div class="descubri-nombre-wrap">
             <div class="descubri-nombre">La Amiguera</div>
           </div>
         </div>
         <div class="descubri-slide">
-          <img src="img/descubri-2-diversion.png" alt="El Gamer">
+          <img src="img/descubri-2-diversion.webp" alt="El Gamer">
           <div class="descubri-nombre-wrap">
             <div class="descubri-nombre">El Gamer</div>
           </div>
         </div>
         <div class="descubri-slide">
-          <img src="img/descubri-3-conexion.png" alt="La Enamorada">
+          <img src="img/descubri-3-conexion.webp" alt="La Enamorada">
           <div class="descubri-nombre-wrap">
             <div class="descubri-nombre">La Intensa</div>
           </div>
         </div>
         <div class="descubri-slide">
-          <img src="img/descubri-4-paz.png" alt="La Tranquila">
+          <img src="img/descubri-4-paz.webp" alt="La Tranquila">
           <div class="descubri-nombre-wrap">
             <div class="descubri-nombre">La Hogareña</div>
           </div>
         </div>
         <div class="descubri-slide">
-          <img src="img/descubri-5-cierre.png" alt="Y vos">
+          <img src="img/descubri-5-cierre.webp" alt="Y vos">
           <div class="descubri-nombre-wrap">
             <div class="cierre-nombre">¿Y vos?</div>
             <div class="cierre-texto">¿Qué iPhone te va?</div>
@@ -1769,261 +2038,6 @@
         <div class="stat-label">financiación propia</div>
       </div>
     </div>
-  </section>
-
-
-  <!-- ===== 6.5 SECCIÓN: LO QUE VES, TE LLEVÁS ===== -->
-  <section class="seccion-vesllevas" id="catalogo">
-    <h2 class="vv-titulo scroll-reveal">
-      <i data-lucide="camera" style="width:26px;height:26px;vertical-align:-4px;margin-right:4px;"></i>
-      Lo que ves,<br>te llevás
-    </h2>
-    <div class="vv-scroll scroll-reveal" id="vvScroll">
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-11.jpg" alt="iPhone 11">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 11</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲180.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-11-pro.jpg" alt="iPhone 11 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 11 Pro</p>
-          <p class="vv-cap">Seminuevo · 256GB</p>
-          <p class="vv-cuota">Cuota desde ₲230.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-11-pro-max.jpg" alt="iPhone 11 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 11 Pro Max</p>
-          <p class="vv-cap">Seminuevo · 256GB</p>
-          <p class="vv-cuota">Cuota desde ₲260.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-12.jpg" alt="iPhone 12">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 12</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲250.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-12-pro.jpg" alt="iPhone 12 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 12 Pro</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲300.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-12-pro-max.jpg" alt="iPhone 12 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 12 Pro Max</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲340.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-13.jpg" alt="iPhone 13">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 13</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲412.500</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-13-pro.jpg" alt="iPhone 13 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 13 Pro</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲548.900</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-13-pro-max.jpg" alt="iPhone 13 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 13 Pro Max</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲612.300</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-14.jpg" alt="iPhone 14">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 14</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲430.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-14-pro.jpg" alt="iPhone 14 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 14 Pro</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲560.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-14-pro-max.jpg" alt="iPhone 14 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 14 Pro Max</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲630.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-15.jpg" alt="iPhone 15">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 15</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲450.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-15-pro.jpg" alt="iPhone 15 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 15 Pro</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲580.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-15-pro-max.jpg" alt="iPhone 15 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 15 Pro Max</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲650.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-15-nuevo.jpg" alt="iPhone 15">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 15</p>
-          <p class="vv-cap">Nuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲100.500</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-16.jpg" alt="iPhone 16">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 16</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲470.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-16-pro.jpg" alt="iPhone 16 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 16 Pro</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲600.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-16-pro-max.jpg" alt="iPhone 16 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 16 Pro Max</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲670.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-16-nuevo.jpg" alt="iPhone 16">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 16</p>
-          <p class="vv-cap">Nuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲490.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-17.jpg" alt="iPhone 17">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 17</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲100.500</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-17-pro.jpg" alt="iPhone 17 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 17 Pro</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲100.500</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-17-pro-max.jpg" alt="iPhone 17 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 17 Pro Max</p>
-          <p class="vv-cap">Seminuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲100.500</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-17-nuevo.jpg" alt="iPhone 17">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 17</p>
-          <p class="vv-cap">Nuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲550.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-17-pro-nuevo.jpg" alt="iPhone 17 Pro">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 17 Pro</p>
-          <p class="vv-cap">Nuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲690.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-17-pro-max-nuevo.jpg" alt="iPhone 17 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 17 Pro Max</p>
-          <p class="vv-cap">Nuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲740.000</p>
-        </div>
-      </div>
-      <div class="vv-card">
-        <span class="vv-pill-stock">En stock</span>
-        <img src="img/iphone-18-pro-max-nuevo.jpg" alt="iPhone 18 Pro Max">
-        <div class="vv-overlay">
-          <p class="vv-modelo">iPhone 18 Pro Max</p>
-          <p class="vv-cap">Nuevo · 128GB</p>
-          <p class="vv-cuota">Cuota desde ₲800.000</p>
-        </div>
-      </div>
-    </div>
-    <p class="vv-nota">Desliza para ver más modelos <i data-lucide="arrow-right" class="vv-flecha"></i></p>
   </section>
 
 
@@ -2174,7 +2188,7 @@
   <footer id="footer-contacto">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img alt="Crediphone" src="img/crediphone-logo.png">
+        <img alt="Crediphone" src="img/crediphone-logo.webp">
         <p>Financiación de iPhones en Paraguay, simple y confiable.</p>
         <div class="foot-social">
           <a href="https://www.instagram.com/crediphonepy/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -2465,9 +2479,9 @@
   /* Para sumar el resto: pegá mas lineas con esta misma estructura,   */
   /* una por cada modelo. El precio es el financiado (no el de contado). */
   const datosCuotas = {
-  "17promax": { nombre: "iPhone 17", variante: "Pro Max", precio: 8600000, estado: "Nuevo", capacidad: "256GB", foto: "img/popup-17-promax.png" },
-  "16promax": { nombre: "iPhone 16", variante: "Pro Max", precio: 5800000, estado: "Semi nuevo", capacidad: "256GB", foto: "img/popup-16-promax.png" },
-  "17normal": { nombre: "iPhone 17", variante: "Normal",  precio: 6400000, estado: "Nuevo", capacidad: "256GB", foto: "img/popup-17-normal.png" }
+  "17promax": { nombre: "iPhone 17", variante: "Pro Max", precio: 8600000, estado: "Nuevo", capacidad: "256GB", foto: "img/popup-17-promax.webp" },
+  "16promax": { nombre: "iPhone 16", variante: "Pro Max", precio: 5800000, estado: "Semi nuevo", capacidad: "256GB", foto: "img/popup-16-promax.webp" },
+  "17normal": { nombre: "iPhone 17", variante: "Normal",  precio: 6400000, estado: "Nuevo", capacidad: "256GB", foto: "img/popup-17-normal.webp" }
 };
 
   const select = document.getElementById('selectorModelo');
@@ -2575,10 +2589,10 @@
 
   /* ===== POPUP DE REGALO (celebración) ===== */
   const fotosRegalo = {
-    smartwatch: 'img/popup-regalo-sin-borde.png',
-    airpods:    'img/popup-airpods-sin-borde.png',
-    vaso:       'img/popup-vaso-sin-borde.png',
-    bolso:      'img/popup-bolso-sin-borde.png'
+    smartwatch: 'img/popup-regalo-sin-borde.webp',
+    airpods:    'img/popup-airpods-sin-borde.webp',
+    vaso:       'img/popup-vaso-sin-borde.webp',
+    bolso:      'img/popup-bolso-sin-borde.webp'
   };
   function abrirRegalo(tipo){
     const overlay = document.getElementById('regaloOverlay');
