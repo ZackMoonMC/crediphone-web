@@ -1740,6 +1740,43 @@
     <div class="pc-tagline">SUJETO A ANALISIS<br>CREDITICIO</div>
   </div>
 </div>
+<div class="pc-overlay" id="reqOverlay">
+  <div class="pc-popup">
+    <button aria-label="Cerrar" class="pc-cerrar" id="reqCerrar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+
+    <img src="img/cedula-requisitos.webp" alt="Ejemplo de cédula de identidad" style="width:100%;border-radius:14px;margin-bottom:16px;display:block;">
+
+    <h3 style="font-size:19px;font-weight:700;text-align:center;margin:0 0 10px;">Solo con tu cédula</h3>
+    <p style="font-size:14px;color:var(--gris-texto);text-align:center;line-height:1.6;margin:0 0 20px;">Envianos por WhatsApp la foto de tu cédula y contanos tu perfil laboral actual. Con eso evaluamos y te decimos qué iPhone podés llevarte hoy mismo.</p>
+
+    <div style="border-top:1px solid var(--gris-borde);">
+      <details open style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
+        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Asalariados</summary>
+        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">6 aportes a IPS</p>
+      </details>
+      <details style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
+        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Funcionarios públicos</summary>
+        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">Permanentes y contratados</p>
+      </details>
+      <details style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
+        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Bancarios</summary>
+        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">6 aportes a la Caja de Jubilaciones</p>
+      </details>
+      <details style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
+        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Jubilados</summary>
+        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">Hasta 69 años</p>
+      </details>
+      <details style="padding:12px 0;">
+        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Independientes / comerciantes</summary>
+        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">Contribuyentes con RUC - IVA</p>
+      </details>
+    </div>
+
+    <a href="https://wa.me/595992401579?text=Hola!%20Te%20env%C3%ADo%20la%20foto%20de%20mi%20c%C3%A9dula%20para%20cotizar." target="_blank" rel="noopener" style="display:block;text-align:center;width:100%;margin-top:18px;padding:13px;border-radius:10px;background:var(--rojo);color:#fff;border:none;font-size:15px;font-weight:700;text-decoration:none;">Enviar mi cédula por WhatsApp</a>
+  </div>
+</div>
 <!-- 4. HERO CARRUSEL (4 fotos, swipe automatico) -->
 <div class="hero-carrusel" id="heroCarrusel">
 <div class="hero-track" id="heroTrack">
@@ -1749,10 +1786,10 @@
 <a class="hero-slide" href="#selectorModelo" onclick="resaltarSelector(event)">
 <img alt="Modelos disponibles" src="img/hero-modelos-nuevos-seminuevos.webp" fetchpriority="low"/>
 </a>
-<a class="hero-slide" href="#regalos">
+<a class="hero-slide" href="#trade-in">
 <img alt="Solicita tu iPhone" src="img/hero-plan-canje-parte-pago.webp" fetchpriority="low"/>
 </a>
-<a class="hero-slide" href="#trade-in">
+<a class="hero-slide" href="#catalogo">
 <img alt="Trade-in: tu iPhone actual vale mas" src="img/hero-envios-a-domicilio.webp" fetchpriority="low"/>
 </a>
 </div>
@@ -2824,43 +2861,6 @@ const datosCuotas = {
 <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.02c-.24.68-1.41 1.31-1.94 1.35-.5.05-1.06.24-3.6-.75-3.04-1.19-5-4.25-5.15-4.45-.15-.2-1.23-1.64-1.23-3.13s.78-2.22 1.05-2.53c.27-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.69.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.28.1 1.77.84 2.07.99.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>
 </a>
 
-<div class="pc-overlay" id="reqOverlay">
-  <div class="pc-popup">
-    <button aria-label="Cerrar" class="pc-cerrar" id="reqCerrar">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
-
-    <img src="img/cedula-requisitos.webp" alt="Ejemplo de cédula de identidad" style="width:100%;border-radius:14px;margin-bottom:16px;display:block;">
-
-    <h3 style="font-size:19px;font-weight:700;text-align:center;margin:0 0 10px;">Solo con tu cédula</h3>
-    <p style="font-size:14px;color:var(--gris-texto);text-align:center;line-height:1.6;margin:0 0 20px;">Envianos por WhatsApp la foto de tu cédula y contanos tu perfil laboral actual. Con eso evaluamos y te decimos qué iPhone podés llevarte hoy mismo.</p>
-
-    <div style="border-top:1px solid var(--gris-borde);">
-      <details open style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
-        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Asalariados</summary>
-        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">6 aportes a IPS</p>
-      </details>
-      <details style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
-        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Funcionarios públicos</summary>
-        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">Permanentes y contratados</p>
-      </details>
-      <details style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
-        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Bancarios</summary>
-        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">6 aportes a la Caja de Jubilaciones</p>
-      </details>
-      <details style="border-bottom:1px solid var(--gris-borde);padding:12px 0;">
-        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Jubilados</summary>
-        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">Hasta 69 años</p>
-      </details>
-      <details style="padding:12px 0;">
-        <summary style="cursor:pointer;font-size:14px;font-weight:700;">Independientes / comerciantes</summary>
-        <p style="font-size:13px;color:var(--gris-texto);margin:8px 0 0;">Contribuyentes con RUC - IVA</p>
-      </details>
-    </div>
-
-    <a href="https://wa.me/595992401579?text=Hola!%20Te%20env%C3%ADo%20la%20foto%20de%20mi%20c%C3%A9dula%20para%20cotizar." target="_blank" rel="noopener" style="display:block;text-align:center;width:100%;margin-top:18px;padding:13px;border-radius:10px;background:var(--rojo);color:#fff;border:none;font-size:15px;font-weight:700;text-decoration:none;">Enviar mi cédula por WhatsApp</a>
-  </div>
-</div>
 
 </body>
 </html>
